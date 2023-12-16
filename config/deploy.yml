@@ -2,7 +2,7 @@
 service: pages-on-demand
 
 # Name of the container image.
-image: user/my-app
+image: nocoffehq/pages-on-demand
 
 # Deploy to these servers.
 servers:
