@@ -1,0 +1,22 @@
+<div id="<%= dom_id site %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= site.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Domain:</strong>
+    <%= site.domain %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Content:</strong>
+    <%= site.content %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this site", site, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this site", edit_site_path(site), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
