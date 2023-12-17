@@ -2,7 +2,7 @@
 service: pages-on-demand
 
 # Name of the container image.
-image: nocoffehq/pages-on-demand
+image: maglevhq/pages-on-demand-poc
 
 # Deploy to these servers.
 servers:
@@ -10,14 +10,19 @@ servers:
 
 # Credentials for your image host.
 registry:
-  # Specify the registry server, if you're not using Docker Hub
-  # server: registry.digitalocean.com / ghcr.io / ...
-  server: registry.digitalocean.com
-  username: did@locomotivecms.com
-
-  # Always use an access token rather than real password when possible.
+  server: ghcr.io
+  username: did
   password:
     - DOCKER_REGISTRY_TOKEN
+
+  # # Specify the registry server, if you're not using Docker Hub
+  # # server: registry.digitalocean.com / ghcr.io / ...
+  # server: registry.digitalocean.com
+  # username: did@locomotivecms.com
+
+  # # Always use an access token rather than real password when possible.
+  # password:
+  #   - DOCKER_REGISTRY_TOKEN
 
 # Inject ENV variables into containers (secrets come from .env).
 # Remember to run `kamal env push` after making changes!
@@ -28,7 +33,7 @@ env:
     RAILS_LOG_TO_STDOUT: true
   secret:
     - RAILS_MASTER_KEY
-    - DATABASE_PASSWORD
+    - POSTGRES_PASSWORD
 
 # Use a different ssh user than root
 # ssh:
@@ -67,26 +72,41 @@ env:
 #     directories:
 #       - data:/data
 accessories:
-  db:
-    image: postgres:15
+  # db:
+  #   image: postgres:15
+  #   host: 104.131.163.175
+  #   port: 5432
+  #   env:
+  #     clear:
+  #       POSTGRES_USER: 'jack'
+  #       POSTGRES_DB: 'pages_on_demand_poc_production'
+  #     secret:
+  #       - POSTGRES_PASSWORD
+  #   files:
+  #     - db/init.sql:/docker-entrypoint-initdb.d/setup.sql
+  #   directories:
+  #     - data:/var/lib/postgresql/data
+
+  caddy:
+    image: caddy:2.7.6
     host: 104.131.163.175
-    port: 5432
-    env:
-      clear:
-        POSTGRES_USER: 'jack'
-        POSTGRES_DB: 'pages_on_demand_poc_production'
-      secret:
-        - DATABASE_PASSWORD
+    ports: 
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
     files:
-      - db/init.sql:/docker-entrypoint-initdb.d/setup.sql
+      - config/Caddyfile:/etc/caddy/Caddyfile
     directories:
-      - data:/var/lib/postgresql/data
+      - caddy_data:/var/lib/caddy/data
+      - caddy_config:/var/lib/caddy/config
+
 
 # Configure custom arguments for Traefik
-# traefik:
-#   args:
-#     accesslog: true
-#     accesslog.format: json
+traefik:
+  host_port: 81
+  # args:
+  #   accesslog: true
+  #   accesslog.format: json
 
 # Configure a custom healthcheck (default is /up on port 3000)
 # healthcheck:

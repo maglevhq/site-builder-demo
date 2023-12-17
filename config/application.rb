@@ -23,5 +23,12 @@ module PagesOnDemandPoc
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Allow any domains created from the application
+    config.hosts << ->(host) { Site.exists?(domain: URI("http://#{host}").host) }
+
+    config.host_authorization = {
+      exclude: ->(request) { request.path.include?('check_domain') }
+    }
   end
 end
