@@ -99,4 +99,6 @@ Rails.application.configure do
 
   config.hosts << 'localhost'
   config.hosts << 'localhost:3000'
+  config.hosts << 'demo-pro.maglev.dev'
+  config.hosts << 'demo-pro.maglev.dev:3000'
 end
