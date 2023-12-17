@@ -28,7 +28,7 @@ module PagesOnDemandPoc
     config.hosts << ->(host) { Site.exists?(domain: URI("http://#{host}").host) }
 
     config.host_authorization = {
-      exclude: ->(request) { request.path.include?('check_domain') }
+      exclude: ->(request) { request.path == '/check_domain' || request.path == "/up" }
     }
   end
 end

@@ -71,29 +71,31 @@ env:
 #     port: 6379
 #     directories:
 #       - data:/data
+
 accessories:
-  # db:
-  #   image: postgres:15
-  #   host: 104.131.163.175
-  #   port: 5432
-  #   env:
-  #     clear:
-  #       POSTGRES_USER: 'jack'
-  #       POSTGRES_DB: 'pages_on_demand_poc_production'
-  #     secret:
-  #       - POSTGRES_PASSWORD
-  #   files:
-  #     - db/init.sql:/docker-entrypoint-initdb.d/setup.sql
-  #   directories:
-  #     - data:/var/lib/postgresql/data
+  db:
+    image: postgres:15
+    host: 104.131.163.175
+    port: 5432
+    env:
+      clear:
+        POSTGRES_USER: 'jack'
+        POSTGRES_DB: 'pages_on_demand_poc_production'
+      secret:
+        - POSTGRES_PASSWORD
+    files:
+      - db/init.sql:/docker-entrypoint-initdb.d/setup.sql
+    directories:
+      - data:/var/lib/postgresql/data
 
   caddy:
     image: caddy:2.7.6
     host: 104.131.163.175
-    ports: 
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+    options:
+      publish:
+        - "80:80"
+        - "443:443"
+        - "443:443/udp"
     files:
       - config/Caddyfile:/etc/caddy/Caddyfile
     directories:
