@@ -1,9 +1,10 @@
 class SitesController < ApplicationController
+  before_action :verify_user_authorization
   before_action :set_site, only: %i[ show edit update destroy ]
 
   # GET /sites or /sites.json
   def index
-    @sites = Site.all
+    @sites = sites
   end
 
   # GET /sites/1 or /sites/1.json
@@ -12,7 +13,7 @@ class SitesController < ApplicationController
 
   # GET /sites/new
   def new
-    @site = Site.new
+    @site = sites.build
   end
 
   # GET /sites/1/edit
@@ -21,7 +22,7 @@ class SitesController < ApplicationController
 
   # POST /sites or /sites.json
   def create
-    @site = Site.new(site_params)
+    @site = sites.build(site_params)
 
     respond_to do |format|
       if @site.save
@@ -58,9 +59,13 @@ class SitesController < ApplicationController
   end
 
   private
+    def sites
+      current_user.sites
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_site
-      @site = Site.find(params[:id])
+      @site = sites.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

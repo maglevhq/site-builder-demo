@@ -24,7 +24,11 @@ module PagesOnDemandPoc
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Keep track of the main host since the app will host both the application and the rendering sie
+    config.x.main_host = ENV['APP_MAIN_HOST']
+
     # Allow any domains created from the application
+    config.hosts << config.x.main_host
     config.hosts << ->(host) { Site.exists?(domain: URI("http://#{host}").host) }
 
     config.host_authorization = {

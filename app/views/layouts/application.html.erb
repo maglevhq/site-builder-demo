@@ -12,6 +12,10 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= render 'layouts/authenticated_user' %>
+    <% end %>
+
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

@@ -1,0 +1,11 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">Sign in</h1>
+
+  <% if flash.alert.present? %>
+    <p class="mt-8 py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="notice"><%= flash.alert %></p>
+  <% end %>
+
+  <%= render "form", user: @user %>
+
+  <%= link_to "Don't have an account?", new_user_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>
