@@ -6,10 +6,14 @@
 
     <%= render @site %>
 
-    <%= link_to "Edit this site", edit_site_path(@site), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit content", maglev.base_editor_url(site_handle: @site.maglev_site.handle, host: Rails.application.config.x.main_host, locale: 'en'), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <%= link_to "Edit settings", edit_site_path(@site), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    
     <div class="inline-block ml-2">
       <%= button_to "Destroy this site", site_path(@site), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
+    
     <%= link_to "Back to sites", sites_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

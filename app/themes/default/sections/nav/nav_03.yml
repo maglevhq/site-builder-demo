@@ -1,0 +1,135 @@
+# Name of the section displayed in the editor UI
+name: "Right Aligned"
+
+# Category of the section in the editor UI (headers, features, testimonials, ...etc)
+category: nav
+
+# A section might have the same content all over the site, like a menu or a footer for instance.
+# To enable this behavior, uncomment the following statement
+site_scoped: true
+
+# Display or not the button to insert a new section after this one
+insert_button: true
+
+# Insert this section at the top or the bottom of the page (default: nil)
+insert_at: top 
+
+# one single instance per page?
+singleton: true
+
+# Definition of the settings:
+# A setting type can be one of the following values: text, image, link, collection_item, checkbox, color and icon.
+# Please visit: https://docs.maglev.dev/concepts/setting for more explanation.
+settings:
+- label: "Logo"
+  id: logo
+  type: image
+  default: "/themes/logoipsum.svg"
+
+# Definition of the blocks.
+# You can define as many types of blocks as you want.
+blocks: 
+- name: "Links"
+  type: link_group
+  accept: ['link_item']
+  limit: 1
+  settings: []
+
+- name: "Link"
+  type: link_item
+  root: false
+  settings:
+  - label: "Link"
+    id: link
+    type: link
+    with_text: true
+    default: 
+      text: "Link"
+      href: "#"
+
+- name: "Buttons"
+  type: button_group
+  accept: ['button_item']
+  limit: 1
+  settings: []
+
+- name: "Button"
+  type: button_item
+  root: false
+  settings:
+  - label: "Button"
+    id: button
+    type: link
+    with_text: true
+    default: 
+      text: "Button"
+      href: "#"
+  - label: "Primary?"
+    id: is_primary
+    type: checkbox
+    default: true
+
+# By default, in the editor UI, blocks will be listed below the "Content" title.
+# The title can be changed with the following property:
+blocks_label: "Navigation"
+
+# By default, blocks are presented as a list in the editor UI. 
+# If you like to use blocks to build a menu with sub menu items, 
+# consider using the tree presentation
+blocks_presentation: "tree"
+
+# In order to get a section with "meaning" content for the editors, 
+# you can set the default content of a new instance of this section.
+# (it's also be useful when taking a screenshot of the section).
+sample:
+  settings:
+    logo: "/themes/logoipsum.svg"
+  blocks:
+  - type: link_group
+    settings: []
+    children:
+    - type: link_item
+      settings:
+        link:
+          text: "About"
+          href: "#"
+    - type: link_item
+      settings:
+        link:
+          text: "Careers"
+          href: "#"
+    - type: link_item
+      settings:
+        link:
+          text: "History"
+          href: "#"
+    - type: link_item
+      settings:
+        link:
+          text: "Services"
+          href: "#"
+    - type: link_item
+      settings:
+        link:
+          text: "Projects"
+          href: "#"
+    - type: link_item
+      settings:
+        link:
+          text: "Blog"
+          href: "#"
+  - type: button_group
+    settings: []
+    children:
+    - type: button_item
+      settings:
+        button:
+          text: "Login"
+          href: "#"
+        is_primary: true
+    - type: button_item
+      settings:
+        button:
+          text: "Register"
+          href: "#"
+        is_primary: false

@@ -26,6 +26,8 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
+        @site.generate_maglev_site
+
         format.html { redirect_to site_url(@site), notice: "Site was successfully created." }
         format.json { render :show, status: :created, location: @site }
       else
@@ -70,6 +72,6 @@ class SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :domain, :content)
+      params.require(:site).permit(:name, :domain)
     end
 end

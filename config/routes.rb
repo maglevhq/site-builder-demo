@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   # Sign in / Sign up
   resources :users, only: [:new, :create]
   resource :session, controller: 'session', only: [:new, :create, :destroy]
-  get '/' => 'session#new', constraints: { host: Rails.application.config.x.main_host }
-
+  
   # Resources
   resource :current_user, controller: 'current_user', only: [:edit, :update]
   resources :sites
@@ -15,6 +14,16 @@ Rails.application.routes.draw do
   # Check if a domain has been registered to our application
   get "check_domain" => 'check_domain#show'
 
-  # to be replaced by Maglev default route
-  root 'public_site#show'
+  # Root of the main domain -> sign in
+  get '/' => 'session#new', constraints: { host: Rails.application.config.x.main_host }
+
+  # [MAGLEV] For more information, go to https://doc.maglev.dev
+  # [MAGLEV] Editor UI + preview endpoint
+  mount Maglev::Pro::Engine => '/maglev', as: :maglev
+
+  # [Maglev] Sitemap.xml
+  get '/sitemap.xml', to: 'maglev/sitemap#index', constraints: Maglev::PreviewConstraint.new(preview_host: true)
+
+  # [MAGLEV] CMS, catch all the routes
+  get '(*path)', to: 'maglev/page_preview#index', defaults: { path: 'index' }, constraints: Maglev::PreviewConstraint.new
 end

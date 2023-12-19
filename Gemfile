@@ -63,6 +63,8 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  gem 'maglevcms-cli', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-cli'
 end
 
 group :test do
@@ -70,3 +72,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
+gem 'maglevcms-pro', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'

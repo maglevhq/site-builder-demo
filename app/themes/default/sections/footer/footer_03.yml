@@ -1,0 +1,217 @@
+# Name of the section displayed in the editor UI
+name: "Split with Company Info, Links and Image"
+
+# Category of the section in the editor UI (headers, features, testimonials, ...etc)
+category: footer
+
+# A section might have the same content all over the site, like a menu or a footer for instance.
+# To enable this behavior, uncomment the following statement
+site_scoped: true
+
+# Display or not the button to insert a new section after this one
+insert_button: false
+
+# Insert this section at the top or the bottom of the page (default: nil)
+insert_at: bottom 
+
+# one single instance per page?
+singleton: true
+
+# Definition of the settings:
+# A setting type can be one of the following values: text, image, link, collection_item, checkbox, color and icon.
+# Please visit: https://docs.maglev.dev/concepts/setting for more explanation.
+settings:
+- label: "Image"
+  id: image
+  type: image
+  default: "/themes/image-placeholder.jpg"
+
+- label: "Phone number"
+  id: phone_number
+  type: text
+  # html: true
+  # line_break: true
+  # nb_rows: 4
+  default: "0123456789"
+
+- label: "Opening hours"
+  id: opening_hours
+  type: text
+  html: true
+  line_break: true
+  nb_rows: 4
+  default: "Monday to Friday: 10am - 5pm<br/>Weekend: 10am - 3pm"
+
+- label: "Copyright"
+  id: copyright
+  type: text
+  html: true
+  line_break: true
+  nb_rows: 2
+  default: "© 2022 Company Name."
+
+- label: "Quick links"
+  id: quick_links
+  type: text
+  html: true
+  line_break: true
+  default: "<a href=\"#\">Terms & Conditions</a>&nbsp;&nbsp;<a href=\"#\">Privacy Policy</a>&nbsp;&nbsp;<a href=\"#\">Cookies</a>"
+
+- label: "Text"
+  id: text
+  type: text
+  html: true
+  line_break: true
+  nb_rows: 4
+  default: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus mollitia quia quod repellendus. Porro harum, odio dolore perspiciatis praesentium provident esse consequatur quibusdam aperiam, cupiditate omnis modi in quasi? In, maxime odio vel repellat sed earum? Debitis quaerat facilis animi. Odio natus nostrum laboriosam impedit magnam praesentium asperiores consectetur ipsum."
+
+# Definition of the blocks.
+# You can define as many types of blocks as you want.
+blocks: 
+- name: "Social links"
+  type: social_links_row
+  accept: ['social_link_item']
+  limit: 1
+  settings: []
+
+- name: "Social link"
+  type: "social_link_item"
+  root: false
+  settings:
+  - label: "Name (SR)"
+    id: name
+    type: text
+    default: "Social network"
+  - label: "Icon"
+    id: icon
+    type: icon
+    default: "ri-twitter-fill"
+  - label: "Link"
+    id: link
+    type: link
+    default: "#"
+
+- name: "Column"
+  type: column
+  accept: ['link_item']
+  limit: 2
+  settings:
+  - label: "Links"
+    id: title
+    type: text
+    default: "Links"
+
+- name: "Link"
+  type: link_item
+  root: false
+  settings:
+  - label: "Link"
+    id: link
+    type: link
+    with_text: true
+    default: "/"
+
+# By default, in the editor UI, blocks will be listed below the "Content" title.
+# The title can be changed with the following property:
+blocks_label: "Links"
+
+# By default, blocks are presented as a list in the editor UI. 
+# If you like to use blocks to build a menu with sub menu items, 
+# consider using the tree presentation
+blocks_presentation: "tree"
+
+# In order to get a section with "meaning" content for the editors, 
+# you can set the default content of a new instance of this section.
+# (it's also be useful when taking a screenshot of the section).
+sample:
+  settings:
+    image: "/themes/image-placeholder.jpg"
+    phone_number: "0123456789"
+    opening_hours: "Monday to Friday: 10am - 5pm<br/>Weekend: 10am - 3pm"
+    quick_links: "<a href=\"#\">Terms & Conditions</a>&nbsp;<a href=\"#\">Privacy Policy</a>&nbsp;<a href=\"#\">Cookies</a>"
+    copyright: "© 2022 Company Name."
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus mollitia quia quod repellendus. Porro harum, odio dolore perspiciatis praesentium provident esse consequatur quibusdam aperiam, cupiditate omnis modi in quasi? In, maxime odio vel repellat sed earum? Debitis quaerat facilis animi. Odio natus nostrum laboriosam impedit magnam praesentium asperiores consectetur ipsum."  
+  blocks: 
+  - type: social_links_row
+    settings: []
+    children:
+    - type: social_link_item
+      settings:
+        name: "Facebook"
+        icon: "ri-facebook-circle-fill"
+        link: "#"
+    - type: social_link_item
+      settings:
+        name: "Instagram"
+        icon: "ri-instagram-fill"
+        link: "#"    
+    - type: social_link_item
+      settings:
+        name: "Twitter"
+        icon: "ri-twitter-fill"
+        link: "#"
+    - type: social_link_item
+      settings:
+        name: "Github"
+        icon: "ri-github-fill"
+        link: "#"
+    - type: social_link_item
+      settings:
+        name: "Dribbble"
+        icon: "ri-dribbble-line"
+        link: "#"
+
+  - type: column
+    settings:
+      title: "Services"
+    children:
+    - type: link_item
+      settings:
+        link: 
+          text: "1on1 Coaching"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "Company Review"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "Accounts Review"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "HR Consulting"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "SEO Optimisation"
+          href: '#'
+  
+  - type: column
+    settings:
+      title: "Company"
+    children:
+    - type: link_item
+      settings:
+        link: 
+          text: "About"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "Meet the Team"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "History"
+          href: '#'
+    - type: link_item
+      settings:
+        link: 
+          text: "Careers"
+          href: '#'
