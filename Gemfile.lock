@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 70ab16c7b60e691e2ddf2efaf3cf6828af6cfe15
+  revision: 6287767c5afa1e6d9f4d41f7f674ef48636745d9
   branch: master
   specs:
     maglevcms (1.4.0)
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/maglevhq/maglev-pro.git
-  revision: 4208c0127fa25a41265792a8626f7b4e6d3e0a37
+  revision: b010fd501f1e36e7888a21bcc811d3b4f15f88f4
   branch: master
   specs:
     maglevcms-pro (0.1.0)
@@ -132,7 +132,7 @@ GEM
     dry-cli (1.0.0)
     error_highlight (0.6.0)
     erubi (1.12.0)
-    faraday (2.8.0)
+    faraday (2.8.1)
       base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
