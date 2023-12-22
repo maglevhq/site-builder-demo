@@ -23,6 +23,12 @@ RUN apt-get update -qq && \
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
+
+RUN --mount=type=secret,id=GITHUB_TOKEN \
+  BUNDLE_GITHUB__COM=x-access-token:$(cat /run/secrets/GITHUB_TOKEN) \
+  bundle install && \
+  rm -rf /usr/local/bundle/cache
+
 RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
@@ -33,9 +39,18 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# Install packaged need to build JS libs
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y nodejs \
+    npm 
+RUN npm install -g yarn@1.22.6
 
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+RUN --mount=type=secret,id=MAGLEV_ADMIN_USERNAME \
+    --mount=type=secret,id=MAGLEV_ADMIN_PASSWORD \
+    MAGLEV_ADMIN_USERNAME=$(cat /run/secrets/MAGLEV_ADMIN_USERNAME) \
+    MAGLEV_ADMIN_PASSWORD=$(cat /run/secrets/MAGLEV_ADMIN_PASSWORD) \
+    SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Final stage for app image
 FROM base

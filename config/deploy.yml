@@ -26,6 +26,10 @@ env:
   secret:
     - RAILS_MASTER_KEY
     - POSTGRES_PASSWORD
+    - BUNDLE_GITHUB__COM
+    - GITHUB_TOKEN
+    - MAGLEV_ADMIN_USERNAME
+    - MAGLEV_ADMIN_PASSWORD
 
 accessories:
   db:
@@ -73,9 +77,10 @@ traefik:
   #   accesslog.format: json
 
 # Configure a custom healthcheck (default is /up on port 3000)
-# healthcheck:
-#   path: /healthz
-#   port: 4000
+healthcheck:
+  # path: /healthz
+  # port: 4000
+  interval: 5s
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
@@ -98,3 +103,11 @@ traefik:
 # useful for more complex deploy configurations.
 #
 # allow_empty_roles: false
+
+builder:
+  secrets:
+    - BUNDLE_GITHUB__COM
+    - GITHUB_TOKEN
+    - MAGLEV_ADMIN_USERNAME
+    - MAGLEV_ADMIN_PASSWORD
+

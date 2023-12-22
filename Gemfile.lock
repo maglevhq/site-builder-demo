@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: d5ff2433d1f2bb86b5a9ad63b156cec01892335b
+  revision: 70ab16c7b60e691e2ddf2efaf3cf6828af6cfe15
   branch: master
   specs:
     maglevcms (1.4.0)
@@ -11,15 +11,10 @@ GIT
       vite_rails (>= 3, < 4)
       vite_ruby (>= 3.5)
 
-PATH
-  remote: /Users/didier/Documents/NoCoffee/Maglev/maglev-cli
-  specs:
-    maglevcms-cli (0.2.0)
-      thor (~> 1)
-      tty-prompt (~> 0.23.1)
-
-PATH
-  remote: /Users/didier/Documents/NoCoffee/Maglev/maglev-pro
+GIT
+  remote: https://github.com/maglevhq/maglev-pro.git
+  revision: 4208c0127fa25a41265792a8626f7b4e6d3e0a37
+  branch: master
   specs:
     maglevcms-pro (0.1.0)
       concurrent-ruby
@@ -137,7 +132,7 @@ GEM
     dry-cli (1.0.0)
     error_highlight (0.6.0)
     erubi (1.12.0)
-    faraday (2.7.12)
+    faraday (2.8.0)
       base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -202,8 +197,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
-    pastel (0.8.0)
-      tty-color (~> 0.5)
     pg (1.5.4)
     psych (5.1.1.1)
       stringio
@@ -285,16 +278,6 @@ GEM
       railties (>= 6.0.0)
     thor (1.3.0)
     timeout (0.4.1)
-    tty-color (0.6.0)
-    tty-cursor (0.7.1)
-    tty-prompt (0.23.1)
-      pastel (~> 0.8)
-      tty-reader (~> 0.8)
-    tty-reader (0.9.0)
-      tty-cursor (~> 0.7)
-      tty-screen (~> 0.8)
-      wisper (~> 2.0)
-    tty-screen (0.8.2)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -318,7 +301,6 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    wisper (2.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
@@ -337,7 +319,6 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   maglevcms!
-  maglevcms-cli!
   maglevcms-pro!
   pg (~> 1.1)
   puma (>= 5.0)
