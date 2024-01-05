@@ -1,1 +1,1 @@
-CREATE DATABASE pages_on_demand_poc_production;
+CREATE DATABASE site_builder_demo_production;

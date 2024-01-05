@@ -39,7 +39,7 @@ accessories:
     env:
       clear:
         POSTGRES_USER: 'jack'
-        POSTGRES_DB: 'pages_on_demand_poc_production'
+        POSTGRES_DB: 'site_builder_demo_production'
       secret:
         - POSTGRES_PASSWORD
     files:

@@ -9,7 +9,7 @@ module AuthenticationConcern
 
   def verify_user_authorization
     if current_user.nil?
-      redirect_to root_path
+      redirect_to new_session_path
     end
   end
 
