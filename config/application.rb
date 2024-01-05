@@ -27,6 +27,10 @@ module SiteBuilderDemo
     # Keep track of the main host since the app will host both the application and the rendering sie
     config.x.main_host = ENV['APP_MAIN_HOST']
 
+    # The domains registered in the application must point to one of those addresses
+    config.x.dns_domain_address = ENV['DNS_DOMAIN_ADDRESS']
+    config.x.dns_domain_alias = ENV['DNS_DOMAIN_ALIAS']
+
     # Allow any domains created from the application
     config.hosts << config.x.main_host
     config.hosts << ->(host) { Site.exists?(domain: URI("http://#{host}").host) }

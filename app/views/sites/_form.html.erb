@@ -19,6 +19,7 @@
   <div class="my-5">
     <%= form.label :domain %>
     <%= form.text_field :domain, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <p class="mt-2 text-gray-400">Update the DNS records of your main domain to point it to <code><%= Rails.application.config.x.dns_domain_address %></code> <small>(A RECORD)</small> or <code><%= Rails.application.config.x.dns_domain_alias %></code> <small>(CNAME)</small>.</p>
   </div>
 
   <div class="inline">

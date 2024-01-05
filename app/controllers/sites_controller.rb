@@ -7,8 +7,15 @@ class SitesController < ApplicationController
     @sites = sites
   end
 
-  # GET /sites/1 or /sites/1.json
+  # GET /sites/1
   def show
+    url = if @site.domain.present?
+      builder = request.ssl? ? URI::HTTPS : URI::HTTP
+      builder.build(host: @site.domain, port: request.port).to_s
+    else
+      maglev.site_preview_path(@site.maglev_site.handle)
+    end
+    redirect_to url, allow_other_host: true
   end
 
   # GET /sites/new
@@ -28,7 +35,7 @@ class SitesController < ApplicationController
       if @site.save
         @site.generate_maglev_site
 
-        format.html { redirect_to site_url(@site), notice: "Site was successfully created." }
+        format.html { redirect_to sites_url, notice: "Site was successfully created." }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +48,7 @@ class SitesController < ApplicationController
   def update
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to site_url(@site), notice: "Site was successfully updated." }
+        format.html { redirect_to sites_url, notice: "Site was successfully updated." }
         format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit, status: :unprocessable_entity }

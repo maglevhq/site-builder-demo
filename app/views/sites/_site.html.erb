@@ -10,11 +10,14 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this site", site, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this site", site_path(site), target: '_blank', class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 
     <%= link_to "Edit content", maglev.base_editor_url(site_handle: site.maglev_site.handle, host: Rails.application.config.x.main_host, locale: 'en'), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
 
     <%= link_to "Edit settings", edit_site_path(site), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <%= button_to "Destroy this site", site_path(site), method: :delete, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium", form_class: 'inline-block' %>
+
     <hr class="mt-6">
   <% end %>
 </div>

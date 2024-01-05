@@ -20,6 +20,8 @@ registry:
 env:
   clear:
     APP_MAIN_HOST: demo-pro.maglev.dev
+    DNS_DOMAIN_ADDRESS: 104.131.163.175
+    DNS_DOMAIN_ALIAS: demo-pro.maglev.dev
     DATABASE_HOST: 10.132.0.2
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
