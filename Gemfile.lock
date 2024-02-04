@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 6287767c5afa1e6d9f4d41f7f674ef48636745d9
+  revision: b93b28f24267e7b4bd7bba3fdd2151a254f7039e
   branch: master
   specs:
-    maglevcms (1.4.0)
+    maglevcms (1.5.1)
       jbuilder (~> 2.11.2)
       kaminari (~> 1.2.1)
       maglev-injectable (~> 2.1.1)
