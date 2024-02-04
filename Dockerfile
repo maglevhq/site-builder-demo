@@ -24,8 +24,11 @@ RUN apt-get update -qq && \
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 
-RUN --mount=type=secret,id=GITHUB_TOKEN \
-  BUNDLE_GITHUB__COM=x-access-token:$(cat /run/secrets/GITHUB_TOKEN) \
+RUN --mount=type=secret,id=BUNDLE_GITHUB__COM \
+  echo "🚀 BUNDLE_GITHUB__COM = $(cat /run/secrets/BUNDLE_GITHUB__COM)"
+
+RUN --mount=type=secret,id=BUNDLE_GITHUB__COM \
+  BUNDLE_GITHUB__COM=$(cat /run/secrets/BUNDLE_GITHUB__COM) \
   bundle install && \
   rm -rf /usr/local/bundle/cache
 
