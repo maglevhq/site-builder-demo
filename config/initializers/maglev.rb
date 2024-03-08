@@ -6,14 +6,14 @@ Maglev.configure do |config|
 
   # Logo of the Editor (top left corner).
   # Put your custom logo in the app/assets/images folder of your Rails application.
-  # config.logo = 'logo.png'
+  config.logo = 'logo.svg'
 
   # Favicon (window tab)
   # Put your custom favicon in the app/assets/images folder of your Rails application.
   # config.favicon = 'favicon.ico'
 
   # Primary color of the Editor
-  # config.primary_color = '#7E6EDB'
+  config.primary_color = '#000000'
 
   # Action triggered when clicking on the very bottom left button in the Editor
   # config.back_action = 'https://www.mysite.dev' # External url
