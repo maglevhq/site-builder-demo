@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: b93b28f24267e7b4bd7bba3fdd2151a254f7039e
+  revision: fd49f870f12684fc0fef1a5ead2d4d9f366ac656
   branch: master
   specs:
     maglevcms (1.5.1)
@@ -11,10 +11,8 @@ GIT
       vite_rails (>= 3, < 4)
       vite_ruby (>= 3.5)
 
-GIT
-  remote: https://github.com/maglevhq/maglev-pro.git
-  revision: b010fd501f1e36e7888a21bcc811d3b4f15f88f4
-  branch: master
+PATH
+  remote: /Users/didier/Documents/NoCoffee/Maglev/maglev-pro
   specs:
     maglevcms-pro (0.1.0)
       concurrent-ruby
@@ -136,11 +134,15 @@ GEM
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
+    ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haikunator (1.1.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -176,6 +178,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.21.2)
     msgpack (1.7.2)
@@ -253,6 +256,7 @@ GEM
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     redis (5.0.8)
       redis-client (>= 0.17.0)
     redis-client (0.19.1)
@@ -261,6 +265,8 @@ GEM
     reline (0.4.2)
       io-console (~> 0.5)
     rexml (3.2.6)
+    ruby-vips (2.2.1)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.17.0)
@@ -334,6 +340,7 @@ DEPENDENCIES
   capybara
   debug
   error_highlight (>= 0.4.0)
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   maglevcms!
@@ -341,6 +348,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)
+  redcarpet (~> 3.6)
   redis (>= 4.0.1)
   selenium-webdriver
   sprockets-rails

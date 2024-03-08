@@ -1,0 +1,27 @@
+<%= maglev_section.wrapper_tag.div class: 'relative py-24 sm:py-32' do %>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <%= maglev_section.setting_tag :title, html_tag: 'h2', class: 'text-base font-semibold leading-7 text-[--slick-primary-color]' %>
+      <%= maglev_section.setting_tag :sentence, html_tag: 'p', class: 'mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl' %>
+      <%= maglev_section.setting_tag :description, html_tag: 'p', class: 'mt-6 text-lg leading-8 text-gray-600' %>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <% maglev_section.blocks.each do |maglev_block| %>
+          <%= maglev_block.wrapper_tag.div class: 'flex flex-col' do %>
+            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+              <%= maglev_block.setting_tag :icon, html_tag: 'i', class: 'text-lg flex-none text-[--slick-primary-color]' %>
+              <%= maglev_block.setting_tag :title %>
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <%= maglev_block.setting_tag :description, class: 'flex-auto' %>
+              <p class="mt-6">
+                <%= maglev_block.setting_tag :link, class: 'text-sm font-semibold leading-6 text-[--slick-primary-color]' %>
+              </p>
+            </dd>
+          <% end %>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+<% end %>

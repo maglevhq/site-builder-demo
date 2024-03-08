@@ -20,7 +20,8 @@ class SitesController < ApplicationController
 
   # GET /sites/new
   def new
-    @site = sites.build
+    @site = sites.build(theme_id: Theme.first.id)
+    @themes = Theme.all
   end
 
   # GET /sites/1/edit
@@ -30,11 +31,10 @@ class SitesController < ApplicationController
   # POST /sites or /sites.json
   def create
     @site = sites.build(site_params)
+    @themes = Theme.all
 
     respond_to do |format|
-      if @site.save
-        @site.generate_maglev_site
-
+      if @site.save_and_create_maglev_site
         format.html { redirect_to sites_url, notice: "Site was successfully created." }
         format.json { render :show, status: :created, location: @site }
       else
@@ -79,6 +79,6 @@ class SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :domain)
+      params.require(:site).permit(:name, :domain, :theme_id)
     end
 end

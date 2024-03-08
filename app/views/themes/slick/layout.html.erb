@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="h-full">
+<head>
+  <title><%= maglev_page.seo_title.presence || maglev_site.name %></title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <meta name="description" content="<%= maglev_page.meta_description %>" />  
+  <meta property="og:title" content="<%= maglev_page.og_title %>" />
+  <meta property="og:description" content="<%= maglev_page.og_description %>" />
+  <meta property="og:image" content="<%= maglev_page.og_image_url %>" />
+
+  <%= render_maglev_alternate_links %>
+
+  <%= javascript_importmap_tags 'themes/slick/application' %>
+
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <%= maglev_live_preview_client_javascript_tag %>
+
+  <style id="maglev-style">
+    :root {
+      --slick-primary-color: <%= maglev_style.primary_color.to_s.presence || '#4f46e5' %>;
+      --slick-primary-hover-color: <%= maglev_style.primary_hover_color.to_s.presence || '#6366f1' %>;
+    }
+  </style>
+</head>
+<body class="bg-white h-full">
+  <main class="h-full" data-maglev-dropzone>
+    <%= render_maglev_sections %>
+  </main>
+</body>
+</html>

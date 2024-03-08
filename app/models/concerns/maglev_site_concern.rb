@@ -11,12 +11,10 @@ module MaglevSiteConcern
 
   ## public methods ##
 
-  def generate_maglev_site(theme: 'default')
-    return false if maglev_site
-
+  def generate_maglev_site
     Maglev::Pro::GenerateSite.call(
       siteable: self, 
-      theme_id: theme, 
+      theme_id: self.theme_id, 
       name: self.name, 
       domain: self.domain,
       locales: [{ label: 'English', prefix: 'en' }]

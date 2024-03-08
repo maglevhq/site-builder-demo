@@ -1,0 +1,21 @@
+<%= maglev_section.wrapper_tag.footer class: 'relative' do %>
+  <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+    <div class="flex justify-center space-x-6 md:order-2">
+      <% maglev_section.blocks.each do |maglev_block| %>
+        <%= maglev_block.wrapper_tag.div do %>
+        <a 
+          href="<%= maglev_block.settings.link.href %>" 
+          <% if maglev_block.settings.link.open_new_window? %>target="_blank"<% end %>
+          class="text-gray-400 hover:text-gray-500"
+        >
+          <span class="sr-only"><%= maglev_block.settings.name %></span>
+          <%= maglev_block.setting_tag :icon, html_tag: 'i', class: 'text-2xl' %>
+        </a>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="mt-8 md:order-1 md:mt-0">
+      <%= maglev_section.setting_tag :copyright, html_tag: 'p', class: 'text-center text-xs leading-5 text-gray-500' %>
+    </div>
+  </div>
+<% end %>

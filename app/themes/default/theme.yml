@@ -3,7 +3,8 @@ id: "default"
 
 name: "HyperUI"
 
-description: "HyperUI components converted into Maglev sections"
+description: |
+  [HyperUI](https://www.hyperui.dev/) components converted into Maglev sections.
 
 section_categories:
 - name: "Navigation"

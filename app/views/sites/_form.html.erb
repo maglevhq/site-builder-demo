@@ -22,6 +22,25 @@
     <p class="mt-2 text-gray-400">Update the DNS records of your main domain to point it to <code><%= Rails.application.config.x.dns_domain_address %></code> <small>(A RECORD)</small> or <code><%= Rails.application.config.x.dns_domain_alias %></code> <small>(CNAME)</small>.</p>
   </div>
 
+  <% unless form.object.persisted? %>
+    <div class="my-5">
+      <%= form.label :theme_id %>
+      <div class="mt-4 space-x-5 flex">
+        <% @themes.each do |theme| %>
+          <div class="flex gap-x-3 px-4">
+            <div class="h-6 flex items-center">
+              <%= form.radio_button :theme_id, theme.id, class: "h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-600" %>
+            </div>
+            <%= form.label :"theme_id_#{theme.id}", class: 'flex flex-col' do %>
+              <div class="leading-6 font-bold"><%= theme.name %></div>
+              <div class="text-gray-500 prose"><%= render_markdown theme.description %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>

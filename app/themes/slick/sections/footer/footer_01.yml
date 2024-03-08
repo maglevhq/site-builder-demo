@@ -1,0 +1,91 @@
+# Name of the section displayed in the editor UI
+name: "Footer #1"
+
+# Category of the section in the editor UI (headers, features, testimonials, ...etc)
+category: footer
+
+# A section might have the same content all over the site, like a menu or a footer for instance.
+# To enable this behavior, uncomment the following statement
+site_scoped: true
+
+# Display or not the button to insert a new section after this one
+insert_button: false
+
+# Insert this section at the top or the bottom of the page (default: nil)
+insert_at: bottom
+
+# One single instance per page?
+singleton: true
+
+# Definition of the settings:
+# A setting type can be one of the following values: text, image, link, collection_item, checkbox, color and icon.
+# Please visit: https://docs.maglev.dev/concepts/setting for more explanation.
+settings:
+- label: "Copyright"
+  id: copyright
+  type: text
+  html: true
+  line_break: true
+  nb_rows: 3
+  default: "© 2024 Your Company, Inc. All rights reserved."
+
+# Definition of the blocks.
+# You can define as many types of blocks as you want.
+blocks:
+- name: "Social link"
+  type: social_link
+  settings:
+  - label: "Name"
+    id: name
+    type: text
+    default: "Social link"
+  - label: "Link"
+    id: link
+    type: link
+    default: "#"
+  - label: "Icon"
+    id: icon
+    type: icon
+    default: "ri-github-fill"
+
+# By default, in the editor UI, blocks will be listed below the "Content" title.
+# The title can be changed with the following property:
+blocks_label: "Social links"
+
+# By default, blocks are presented as a list in the editor UI.
+# If you like to use blocks to build a menu with sub menu items,
+# consider using the tree presentation
+# blocks_presentation: "tree"
+
+# In order to get a section with "meaning" content for the editors,
+# you can set the default content of a new instance of this section.
+# (it's also be useful when taking a screenshot of the section).
+sample:
+  settings:
+    copyright: "© 2024 Your Company, Inc. All rights reserved."    
+  blocks:
+  - type: social_link
+    settings:
+      name: "Facebook"
+      link: "#"
+      icon: "ri-facebook-circle-fill"
+  - type: social_link
+    settings:
+      name: "Instagram"
+      link: "#"
+      icon: "ri-instagram-line"
+  - type: social_link
+    settings:
+      name: "Twitter"
+      link: "#"
+      icon: "ri-twitter-x-line"
+  - type: social_link
+    settings:
+      name: "Github"
+      link: "#"
+      icon: "ri-github-fill"
+  - type: social_link
+    settings:
+      name: "Youtube"
+      link: "#"
+      icon: "ri-youtube-fill"
