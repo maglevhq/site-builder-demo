@@ -1,24 +1,41 @@
-# README
+# Site builder demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This very minimal and simple Ruby on Rails application runs the **PRO version** of [MaglevCMS](https://www.maglev.dev), the most advanced page builder gem in Rails.
 
-Things you may want to cover:
+[online demo](https://demo-pro.maglev.dev)
 
-* Ruby version
+## Features
 
-* System dependencies
+- 🌐 once signed up/in, users can create as many sites as they want.
+- 🎨 a new site is generated from one of the 2 themes included in the app.
+- 🤩 the content of each site is edited thanks to the awesome UI/UX of Maglev.
+- 🔐 a TLS certificate is generated for each site with a valid domain (require a DNS operation).
+- 📦 a Kamal deployment config file is provided, making the deployment of this application really easy.
 
-* Configuration
+## Installation
 
-* Database creation
+The installation requires a license key of the Maglev PRO version. Visit [our site](https://www.maglev.dev/pricing) to get your key.
 
-* Database initialization
+### System requirements
 
-* How to run the test suite
+- Ruby 3.2+
+- Rails 7.1+
+- Postgresql
+- Docker (if you want to deploy it with Kamal)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Instructions
 
-* Deployment instructions
+```code
+git clone https://github.com/maglevhq/site-builder-demo
+cd site-builder-demo
+bundle install
+bundle exec rails db:create
+bundle exec rails db:migrate
+./bin/dev
+```
 
-* ...
+## License
+
+The source code of this application without the Maglev PRO gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+
