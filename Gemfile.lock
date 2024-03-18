@@ -11,10 +11,10 @@ GIT
       vite_rails (>= 3, < 4)
       vite_ruby (>= 3.5)
 
-PATH
-  remote: /Users/didier/Documents/NoCoffee/Maglev/maglev-pro
+GEM
+  remote: https://packages.nocoffee.fr/private/
   specs:
-    maglevcms-pro (0.1.0)
+    maglevcms-pro (0.2.0)
       concurrent-ruby
       faraday
       haikunator (= 1.1.0)
