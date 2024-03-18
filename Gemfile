@@ -77,8 +77,8 @@ gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: fals
 # gem 'maglevcms-pro', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 
-source "https://packages.nocoffee.fr/private" do
-  gem "maglevcms-pro"
+source 'https://packages.nocoffee.fr/private' do
+  gem 'maglevcms-pro', require: 'maglev/pro'
 end
 
 gem "redcarpet", "~> 3.6"
