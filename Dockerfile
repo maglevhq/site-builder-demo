@@ -27,8 +27,13 @@ COPY Gemfile Gemfile.lock ./
 RUN --mount=type=secret,id=BUNDLE_GITHUB__COM \
   echo "🚀 BUNDLE_GITHUB__COM = $(cat /run/secrets/BUNDLE_GITHUB__COM)"
 
+RUN --mount=type=secret,id=BUNDLE_PACKAGES__NOCOFFEE__FR \
+echo "🚀 BUNDLE_PACKAGES__NOCOFFEE__FR = $(cat /run/secrets/BUNDLE_PACKAGES__NOCOFFEE__FR)"
+
 RUN --mount=type=secret,id=BUNDLE_GITHUB__COM \
+    --mount=type=secret,id=BUNDLE_PACKAGES__NOCOFFEE__FR \
   BUNDLE_GITHUB__COM=$(cat /run/secrets/BUNDLE_GITHUB__COM) \
+  BUNDLE_PACKAGES__NOCOFFEE__FR=$(cat /run/secrets/BUNDLE_PACKAGES__NOCOFFEE__FR) \
   bundle install && \
   rm -rf /usr/local/bundle/cache
 

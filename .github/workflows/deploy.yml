@@ -62,6 +62,7 @@ jobs:
           build-args: 
           secrets: |
             "BUNDLE_GITHUB__COM=${{ secrets.BUNDLE_GITHUB__COM }}:x-oauth-basic"
+            "BUNDLE_PACKAGES__NOCOFFEE__FR=${{ secrets.BUNDLE_PACKAGES__NOCOFFEE__FR }}"
             "MAGLEV_ADMIN_USERNAME=${{ secrets.MAGLEV_ADMIN_USERNAME }}"
             "MAGLEV_ADMIN_PASSWORD=${{ secrets.MAGLEV_ADMIN_PASSWORD }}"
           push: true
