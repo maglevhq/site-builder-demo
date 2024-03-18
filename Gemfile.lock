@@ -14,7 +14,7 @@ GIT
 GEM
   remote: https://packages.nocoffee.fr/private/
   specs:
-    maglevcms-pro (0.2.0)
+    maglevcms-pro (0.3.0)
       concurrent-ruby
       faraday
       haikunator (= 1.1.0)
@@ -344,7 +344,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   maglevcms!
-  maglevcms-pro!
+  maglevcms-pro (~> 0.3.0)!
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)
