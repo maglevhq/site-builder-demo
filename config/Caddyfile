@@ -6,7 +6,7 @@
         #        }
         # }
 
-        email "did@locomotivecms.com"
+        email "didier@nocoffee.fr"
 
         on_demand_tls {
                 ask http://10.132.0.2:81/check_domain

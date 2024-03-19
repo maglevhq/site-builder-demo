@@ -69,7 +69,7 @@ class SitesController < ApplicationController
 
   private
     def sites
-      current_user.sites
+      current_user.sites.order(created_at: :desc)
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -79,6 +79,8 @@ class SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :domain, :theme_id)
+      params.require(:site).permit(:name, :domain, :theme_id).tap do |safe_params|
+        safe_params[:domain] = nil if safe_params[:domain].blank?
+      end
     end
 end

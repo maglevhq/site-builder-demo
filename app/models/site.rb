@@ -7,7 +7,7 @@ class Site < ApplicationRecord
   
   ## validations ##
   validates :name, presence: true
-  validates :domain, uniqueness: { only_blank: true }
+  validates :domain, uniqueness: { allow_nil: true }
   validates :theme_id, presence: true, on: :create
 
   ## virtual attributes ##
