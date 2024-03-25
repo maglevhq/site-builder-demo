@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: fd02b6f6f7fa517a44b6cd395fbe4651ea074952
+  revision: 605f6c0926e039ce0cba7a9f1b9ff13105ceed55
   branch: master
   specs:
     maglevcms (1.5.1)
@@ -166,7 +166,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    liquid (5.4.0)
+    liquid (5.5.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)

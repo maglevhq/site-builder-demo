@@ -11,6 +11,8 @@ site_scoped: true
 # Display or not the button to insert a new section after this one
 # insert_button: false
 
+# viewport_fixed_position: true
+
 # Insert this section at the top or the bottom of the page (default: nil)
 insert_at: top
 

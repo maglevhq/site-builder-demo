@@ -63,8 +63,6 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
-
-  # gem 'maglevcms-cli', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-cli'
 end
 
 group :test do
@@ -73,12 +71,13 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# gem 'maglevcms', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-core', require: false
 gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
-# gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 
+# gem 'maglevcms-pro', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
+# gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 source 'https://packages.nocoffee.fr/private' do
   gem 'maglevcms-pro', '~> 0.3.1', require: 'maglev/pro'
 end
-# gem 'maglevcms-pro', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
 
 gem "redcarpet", "~> 3.6"
