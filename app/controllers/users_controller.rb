@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users/new
   def new
+    redirect_to sites_path if current_user
+    
     @user = User.new
   end
 

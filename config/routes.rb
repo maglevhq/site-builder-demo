@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   # Check if a domain has been registered to our application (endpoint required by the CaddyServer)
   get "check_domain" => 'check_domain#show'
 
-  # Root of the main domain -> sign in page
-  get '/' => 'session#new', constraints: { host: Rails.application.config.x.main_host }
+  # Root of the main domain -> sign up page
+  get '/' => 'users#new', constraints: { host: Rails.application.config.x.main_host }
 
   # [Maglev] For more information, go to https://doc.maglev.dev
   # [Maglev] Editor UI + preview endpoint
