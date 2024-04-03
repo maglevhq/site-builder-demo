@@ -36,7 +36,10 @@ Maglev.configure do |config|
 
   # Editor UI authentication (https://docs.maglev.dev/guides/setup-authentication)
   # config.is_authenticated = :editor_allowed? # name of any protected method from your Rails application controller
-  config.is_authenticated = ->(site) { site.siteable.user_id == current_user.id }
+  config.is_authenticated = ->(site) do 
+    Rails.logger.info "🔐 site##{site.id} owned by user##{site.siteable.user_id} and requested by user##{current_user&.id}"
+    site.siteable.user_id == current_user.id
+  end
 
   # Admin UI authentication (https://docs.maglev.dev/guides/setup-authentication)
   config.admin_username = Rails.env.production? ? ENV.fetch('MAGLEV_ADMIN_USERNAME') : nil
