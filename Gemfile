@@ -81,3 +81,5 @@ source 'https://packages.nocoffee.fr/private' do
 end
 
 gem "redcarpet", "~> 3.6"
+
+gem "honeybadger", "~> 5.8"

@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 605f6c0926e039ce0cba7a9f1b9ff13105ceed55
+  revision: 302e7f63267379c5a2bf8ff18716ab38244ec5d0
   branch: master
   specs:
-    maglevcms (1.5.1)
+    maglevcms (1.6.0)
       jbuilder (~> 2.11.2)
       kaminari (~> 1.2.1)
       maglev-injectable (~> 2.1.1)
@@ -138,6 +138,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     haikunator (1.1.0)
+    honeybadger (5.8.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -340,6 +341,7 @@ DEPENDENCIES
   capybara
   debug
   error_highlight (>= 0.4.0)
+  honeybadger (~> 5.8)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

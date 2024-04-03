@@ -20,6 +20,7 @@ jobs:
       RAILS_ENV: production
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       DOCKER_REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      HONEYBADGER_API: ${{ secrets.HONEYBADGER_API }}
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       BUNDLE_GITHUB__COM: ${{ secrets.BUNDLE_GITHUB__COM }}
       BUNDLE_PACKAGES__NOCOFFEE__FR: ${{ secrets.BUNDLE_PACKAGES__NOCOFFEE__FR }}
