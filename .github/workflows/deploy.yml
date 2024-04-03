@@ -92,6 +92,7 @@ jobs:
       - name: Run deploy command
         run: |
           git status --porcelain
+          kamal env push
           kamal deploy --skip-push
 
       - uses: honeybadger-io/github-notify-deploy-action@v1
