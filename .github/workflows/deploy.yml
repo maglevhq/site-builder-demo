@@ -20,7 +20,7 @@ jobs:
       RAILS_ENV: production
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       DOCKER_REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      HONEYBADGER_API: ${{ secrets.HONEYBADGER_API }}
+      HONEYBADGER_API_KEY: ${{ secrets.HONEYBADGER_API_KEY }}
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       BUNDLE_GITHUB__COM: ${{ secrets.BUNDLE_GITHUB__COM }}
       BUNDLE_PACKAGES__NOCOFFEE__FR: ${{ secrets.BUNDLE_PACKAGES__NOCOFFEE__FR }}
@@ -93,6 +93,10 @@ jobs:
         run: |
           git status --porcelain
           kamal deploy --skip-push
+
+      - uses: honeybadger-io/github-notify-deploy-action@v1
+        with:
+          api_key: ${{ secrets.HONEYBADGER_API_KEY }}
 
       - uses: actions/delete-package-versions@v4
         with: 
