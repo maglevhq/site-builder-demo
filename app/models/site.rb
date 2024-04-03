@@ -7,7 +7,11 @@ class Site < ApplicationRecord
   
   ## validations ##
   validates :name, presence: true
-  validates :domain, uniqueness: { allow_nil: true }
+  validates :domain, 
+    uniqueness: { allow_nil: true }, 
+    exclusion: { 
+      in: [SiteBuilderDemo::Application.config.x.main_host]
+    }
   validates :theme_id, presence: true, on: :create
 
   ## virtual attributes ##
