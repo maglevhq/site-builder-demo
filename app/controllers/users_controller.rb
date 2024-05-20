@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout 'authentication'
+
   # GET /users/new
   def new
     redirect_to sites_path if current_user

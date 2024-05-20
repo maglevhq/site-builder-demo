@@ -1,13 +1,18 @@
-<div class="mx-auto md:w-4/5 w-full flex">
-  <div class="w-1/3">
-    <h1 class="font-bold text-4xl">Demo registration</h1>
+<% content_for :title do %>Register<% end %>
+<% content_for :tagline do %>
+  An account is required to create your first site!
+  <br/>
+  <%= link_to "Already have an account?", new_session_path, class: "font-semibold text-gray-800 hover:text-gray-700" %>
+<% end %>
 
-    <%= render "form", user: @user %>
+<%= form_with(model: @user, class: "space-y-6") do |form| %>
+  <%= render_ncuikit_form :email_field, form: form, attribute: :email %>
 
-    <%= link_to "Existing account?", new_session_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= render_ncuikit_form :password_field, form: form, attribute: :password %>
+
+  <%= render_ncuikit_form :password_field, form: form, attribute: :password_confirmation %>  
+
+  <div>
+    <%= render_ncuikit_button :primary_submit, label: 'Sign up', full_width: true %>
   </div>
-
-  <div class="w-2/3">
-    <%= render "shared/welcome" %>
-  </div>
-</div>
+<% end %>

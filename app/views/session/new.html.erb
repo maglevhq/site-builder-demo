@@ -1,3 +1,21 @@
+<% content_for :title do %>Sign in<% end %>
+<% content_for :tagline do %>
+  <span>Welcome back!</span>&nbsp;<%= link_to "Don't have an account?", new_user_path, class: "font-semibold text-ncuikit-primary hover:text-ncuikit-primary-light" %>
+<% end %>
+
+<%= form_with(model: @user, url: session_path) do |form| %>
+  <div class="space-y-6">
+    <%= render_ncuikit_form :email_field, form: form, attribute: :email %>
+
+    <%= render_ncuikit_form :password_field, form: form, attribute: :password %>
+
+    <div class="py-2">
+      <%= render_ncuikit_button :primary_submit, label: 'Sign in', full_width: true %>
+    </div>
+  </div>
+<% end %>
+
+<% if false %>
 <div class="mx-auto md:w-4/5 w-full flex">
   <div class="w-1/3">
     <h1 class="font-bold text-4xl">Sign in</h1>
@@ -15,3 +33,4 @@
     <%= render "shared/welcome" %>
   </div>
 </div>
+<% end %>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SiteBuilder DEMO</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <%= javascript_importmap_tags %>
+
+    <%= javascript_import_module_tag "ncuikit/application" %>
+
+    <style>
+      :root {
+        --color-primary-light: 55 65 81;
+        --color-primary: 31 41 55 %>;
+      }
+    </style>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <%= render 'layouts/authenticated_user' %>
+    <% end %>
+
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
+  </body>
+</html>

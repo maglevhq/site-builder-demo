@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  layout 'authentication'
 
   def new
     redirect_to sites_path if current_user
@@ -13,8 +14,9 @@ class SessionController < ApplicationController
       session[:user_id] = @user.id
       redirect_to sites_path
     else
-      flash[:alert] = "Login failed"
-      redirect_to new_session_path
+      @user = User.new
+      @user.errors.add(:email, 'wrong email and/or password')
+      render :new, status: :unprocessable_entity
     end
   end
 
