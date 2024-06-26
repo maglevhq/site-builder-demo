@@ -1,21 +1,10 @@
 class SitesController < ApplicationController
   before_action :verify_user_authorization
-  before_action :set_site, only: %i[ show edit update destroy ]
+  before_action :set_site, only: %i[edit update destroy ]
 
   # GET /sites or /sites.json
   def index
     @sites = sites
-  end
-
-  # GET /sites/1
-  def show
-    url = if @site.domain.present?
-      builder = request.ssl? ? URI::HTTPS : URI::HTTP
-      builder.build(host: @site.domain, port: request.port).to_s
-    else
-      maglev.site_preview_path(@site.maglev_site.handle)
-    end
-    redirect_to url, allow_other_host: true
   end
 
   # GET /sites/new

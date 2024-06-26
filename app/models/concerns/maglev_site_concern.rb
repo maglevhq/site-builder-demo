@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MaglevSiteConcern
   extend ActiveSupport::Concern
 
@@ -6,18 +8,20 @@ module MaglevSiteConcern
     has_one :maglev_site, class_name: 'Maglev::Site', as: :siteable, dependent: :destroy
 
     ## callbacks ##
-    after_update :update_maglev_site
+    after_commit :update_maglev_site
   end
 
   ## public methods ##
 
   def generate_maglev_site
+    return false if maglev_site # create it once
+
     Maglev::Pro::GenerateSite.call(
-      siteable: self, 
-      theme_id: self.theme_id, 
-      name: self.name, 
+      siteable: self,
+      theme_id:,
+      name: self.name,
       domain: self.domain,
-      locales: [{ label: 'English', prefix: 'en' }]
+      locales: [{ label: 'English', prefix: 'en' }] # or replace by a list of locales
     )
   end
 
@@ -26,7 +30,13 @@ module MaglevSiteConcern
   private
 
   def update_maglev_site
-    return unless name_previously_changed? || domain_previously_changed?
+    # If the parent got updated, the new values of attributes like the
+    # name of the site or the domain name has to be carried to the Maglev site too.
+    # Example:
+    #
+    # return unless name_previously_changed? || domain_previously_changed?
+    return if !persisted? || !maglev_site
+
     maglev_site.update(name: self.name, domain: self.domain)
   end
 end

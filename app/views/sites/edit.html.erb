@@ -1,8 +1,13 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing site</h1>
+<%= render_ncuikit :page_layout, title: 'Editing site' do |page| %>
+  <% page.with_actions do %>
+    <%= render_ncuikit_button :primary_link, label: 'Back to sites', url: sites_path, icon: 'ri-arrow-left-line' %>
+  <% end %>  
 
-  <%= render "form", site: @site %>
+  <%= form_with(model: @site) do |form| %>
+    <%= render 'form', form: %>
 
-  <%= link_to "Show this site", @site, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to sites", sites_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
+    <div class="mt-12 text-right border-t border-gray-900/10 pt-6">
+      <%= render_ncuikit_button :primary_submit, label: 'Update' %>
+    </div>
+  <% end %>
+<% end %>

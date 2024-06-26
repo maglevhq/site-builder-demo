@@ -1,6 +1,6 @@
-<%= render_ncuikit :menu_dropdown, orientation: 'right', content_class: 'w-48' do |c| %>
+<%= render_ncuikit :menu_dropdown, orientation: 'right', content_class: 'w-48', arrow: true do |c| %>
   <% c.with_label do %>
-    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+    <%= render_ncuikit :avatar, full_name: nil, size: 'sm' %>
   <% end %>
 
   <% c.with_menu_header do %>
@@ -11,6 +11,12 @@
   <% end %>
 
   <% c.menu_item do %>
-    <%= button_to "Sign out", session_path, method: :delete, class: c.menu_item_css %>
+    <%= link_to 'Edit profile', edit_current_user_path, class: c.menu_item_css %>
+  <% end %>
+
+  <% c.menu_separator %>
+
+  <% c.menu_item do %>
+    <%= button_to 'Sign out', session_path, method: :delete, class: c.menu_item_css %>
   <% end %>
 <% end %>

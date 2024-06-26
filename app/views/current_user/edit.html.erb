@@ -1,7 +1,22 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing your account</h1>
+<%= render_ncuikit :page_layout, title: 'Editing your account' do |page| %>
 
-  <%= render "form", user: @user %>
+  <%= form_with(model: @user, url: current_user_path) do |form| %>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
+      <div class="sm:col-span-3">
+        <%= render_ncuikit_form :email_field, form: form, attribute: :email %>
+      </div>
 
-  <%= link_to "Back to sites", sites_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
+      <div class="sm:col-start-1 sm:col-span-3">
+        <%= render_ncuikit_form :password_field, form: form, attribute: :password %>
+      </div>
+
+      <div class="sm:col-span-3">
+        <%= render_ncuikit_form :password_field, form: form, attribute: :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="mt-12 text-right border-t border-gray-900/10 pt-6">
+      <%= render_ncuikit_button :primary_submit, label: 'Update' %>
+    </div>
+  <% end %>
+<% end %>
