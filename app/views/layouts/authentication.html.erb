@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="h-full bg-white">
+  <head>
+    <title>Website builder - Authentication</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <%= javascript_importmap_tags %>
+
+    <%= javascript_import_module_tag "ncuikit/application" %>
+
+    <style>
+      :root {
+        --color-primary-light: 55 65 81;
+        --color-primary: 31 41 55;
+      }
+    </style>
+  </head>
+  <body class="h-full">
+    <div class="flex flex-col min-h-full">
+      <%= render 'shared/demo_banner' %>
+      
+      <div class="grow flex min-h-full flex-row">
+        <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+          <div class="mx-auto w-full max-w-sm lg:w-96">
+            <div>
+              <div class="flex items-center space-x-4">
+                <%= image_tag "logo2.png", class: 'h-10', alt: 'Website Builder' %>
+                <p class="font-bold text-gray-900 text-sm">Website Builder</p>
+              </div>
+
+              <h2 class="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                <%= yield :title %>
+              </h2>
+
+              <p class="mt-2 text-sm leading-6 text-gray-500">
+                <%= yield :tagline %>
+              </p>
+            </div>
+
+            <div class="mt-10">
+              <div>
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative hidden w-0 flex-1 lg:block">
+          <%= image_tag "backgrounds/img-55.jpg", class: 'absolute inset-0 h-full w-full object-cover' %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

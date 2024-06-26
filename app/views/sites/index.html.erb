@@ -1,14 +1,17 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<%= render_ncuikit :page_layout, title: 'Sites' do |page| %>
+
+  <% page.with_actions do %>
+    <%= render_ncuikit_button :primary_link, label: 'Add site', url: new_site_path, icon: 'ri-add-line' if @sites.present? %>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Sites</h1>
-    <%= link_to "New site", new_site_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
+  <% if @sites.empty? %>
+    <%= render_ncuikit :empty_state, title: 'No sites', subtitle: 'Get started by creating your first site.', icon: 'ri-pages-line' do %>
+      <%= render_ncuikit_button :primary_link, label: 'Create site', url: new_site_path, icon: 'ri-add-line' %>
+      <% end %>
+  <% else %>
+    <%= render_ncuikit :grid_list do %>
+      <%= render @sites %>
+    <% end %>
+  <% end %>
 
-  <div id="sites" class="min-w-full">
-    <%= render @sites %>
-  </div>
-</div>
+<% end %>

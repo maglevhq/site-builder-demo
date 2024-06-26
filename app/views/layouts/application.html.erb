@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-white">
   <head>
-    <title>SiteBuilder DEMO</title>
+    <title>Website builder</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,15 +12,43 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
 
     <%= javascript_importmap_tags %>
+
+    <%= javascript_import_module_tag "ncuikit/application" %>
+
+    <style>
+      :root {
+        --color-primary-light: 55 65 81;
+        --color-primary: 31 41 55;
+      }
+    </style>
   </head>
+  <body class="h-full flex flex-col">
+    <%= render 'shared/demo_banner' %>
+    <div class="grow">
+      <nav class="border-b border-gray-200 bg-white">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 justify-between">
+            <div class="flex">
+              <%= link_to sites_path, class: 'flex flex-shrink-0 items-center' do %>
+                <%= image_tag "logo2.png", class: 'h-8', alt: 'Website Builder demo' %>
+              <% end %>
 
-  <body>
-    <% if current_user %>
-      <%= render 'layouts/authenticated_user' %>
-    <% end %>
+              <%= render 'shared/menu' %>
+            </div>
+            <div class="hidden sm:ml-6 sm:flex sm:items-center">
+              <div class="relative ml-3">
+                <%= render 'shared/profile_dropdown' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+      <div class="py-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'shared/toast' %>
   </body>
 </html>

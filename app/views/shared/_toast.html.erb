@@ -1,0 +1,3 @@
+<% flash.each do |type, msg| %>
+  <%= render_ncuikit :toast, type: type == 'notice' ? 'success' : type, title: msg %>
+<% end %>

@@ -1,23 +1,38 @@
-<div id="<%= dom_id site %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= site.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Domain:</strong>
-    <%= site.domain %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this site", site_path(site), target: '_blank', class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-
-    <%= link_to "Edit content", maglev.base_editor_url(site_handle: site.maglev_site.handle, host: Rails.application.config.x.main_host, locale: 'en'), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-
-    <%= link_to "Edit settings", edit_site_path(site), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-
-    <%= button_to "Destroy this site", site_path(site), method: :delete, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium", form_class: 'inline-block' %>
-
-    <hr class="mt-6">
+<%= render_ncuikit :card, options: { main_css_classes: 'overflow-hidden', body_css_classes: 'h-72' } do |c| %>
+  <% c.with_title do %>
+    <%= link_to site.name, site_preview_url(site), target: '_blank' %>
   <% end %>
-</div>
+
+  <% c.with_subtitle do %>
+    <% if site.domain.present? %>
+      <%= link_to site.domain, site_live_url(site), target: '_blank', class: 'hover:underline' %>
+    <% else %>
+      <i>no domain</i>
+    <% end %>
+  <% end %>
+  
+  <% c.with_dropdown do %>
+    <%= render_ncuikit :menu_dropdown, orientation: 'right', content_class: 'w-48' do |c| %>
+      <% c.menu_item do %>
+        <%= link_to edit_site_content_url(site), class: c.menu_item_css do %>
+          <i class="ri-pencil-line mr-1"></i> Edit content
+        <% end %>
+      <% end %>
+      <% c.menu_item do %>
+        <%= link_to edit_site_path(site), class: c.menu_item_css do %>
+          <i class="ri-settings-2-line mr-1"></i> Edit settings
+        <% end %>
+      <% end %>
+      <% c.menu_separator %>
+      <% c.menu_item do %>
+        <%= button_to site_path(site), method: :delete, class: c.menu_item_css, data: { turbo_confirm: 'Are you sure?' } do %>
+          <i class="ri-delete-bin-line mr-1"></i> Delete
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <div style="width: 200%; height: 200%;" class="overflow-y-scroll scale-50 origin-top-left">
+    <iframe src="<%= site_preview_url(site) %>" class="w-full h-full pointer-events-none"></iframe>
+  </div>
+<% end %>
