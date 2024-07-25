@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 302e7f63267379c5a2bf8ff18716ab38244ec5d0
+  revision: da606a424d1781a59ed27fcadca8c610019fa074
   branch: master
   specs:
-    maglevcms (1.6.0)
+    maglevcms (1.6.1)
       jbuilder (~> 2.11.2)
       kaminari (~> 1.2.1)
       maglev-injectable (~> 2.1.1)
@@ -14,7 +14,7 @@ GIT
 GEM
   remote: https://packages.nocoffee.fr/private/
   specs:
-    maglevcms-pro (0.3.2)
+    maglevcms-pro (0.4.0)
       concurrent-ruby
       faraday
       haikunator (= 1.1.0)
@@ -22,7 +22,7 @@ GEM
       kaminari
       liquid (~> 5.4)
       rails (>= 6.1.6)
-    ncuikit (0.1.1)
+    ncuikit (0.2.0)
       importmap-rails (~> 2.0, >= 2.0.1)
       rails (>= 7.1.3.2)
       stimulus-rails (~> 1.2)
@@ -134,7 +134,7 @@ GEM
     dry-cli (1.0.0)
     error_highlight (0.6.0)
     erubi (1.12.0)
-    faraday (2.9.1)
+    faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
@@ -317,7 +317,7 @@ GEM
     vite_rails (3.0.17)
       railties (>= 5.1, < 8)
       vite_ruby (~> 3.0, >= 3.2.2)
-    vite_ruby (3.5.0)
+    vite_ruby (3.6.0)
       dry-cli (>= 0.7, < 2)
       rack-proxy (~> 0.6, >= 0.6.1)
       zeitwerk (~> 2.2)
@@ -354,8 +354,8 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   maglevcms!
-  maglevcms-pro (~> 0.3.1)!
-  ncuikit (~> 0.1.1)!
+  maglevcms-pro (~> 0.4.0)!
+  ncuikit (~> 0.2.0)!
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)

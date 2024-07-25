@@ -1,6 +1,6 @@
 <%= render_ncuikit :menu_dropdown, orientation: 'right', content_class: 'w-48', arrow: true do |c| %>
   <% c.with_label do %>
-    <%= render_ncuikit :avatar, full_name: nil, size: 'sm' %>
+    <%= render_ncuikit :avatar, url: current_user.avatar, full_name: nil, size: 'sm' %>
   <% end %>
 
   <% c.with_menu_header do %>

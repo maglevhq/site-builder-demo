@@ -25,7 +25,7 @@
       <% end %>
       <% c.menu_separator %>
       <% c.menu_item do %>
-        <%= button_to site_path(site), method: :delete, class: c.menu_item_css, data: { turbo_confirm: 'Are you sure?' } do %>
+        <%= button_to site_path(site), method: :delete, class: [c.menu_item_css, 'text-red-600'], data: { turbo_confirm: 'Are you sure?' } do %>
           <i class="ri-delete-bin-line mr-1"></i> Delete
         <% end %>
       <% end %>

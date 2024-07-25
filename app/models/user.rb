@@ -8,4 +8,7 @@ class User < ApplicationRecord
   ## validations ##
   validates :email, presence: true, uniqueness: true
 
+  ## Attachments ##
+  has_one_attached :avatar
+
 end

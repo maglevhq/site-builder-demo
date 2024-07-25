@@ -3,6 +3,9 @@
   <%= form_with(model: @user, url: current_user_path) do |form| %>
     <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
       <div class="sm:col-span-3">
+        <%= render_ncuikit_form :avatar_field, form: form, attribute: :avatar %>
+      </div>
+      <div class="sm:col-start-1 sm:col-span-3">
         <%= render_ncuikit_form :email_field, form: form, attribute: :email %>
       </div>
 
@@ -16,7 +19,7 @@
     </div>
 
     <div class="mt-12 text-right border-t border-gray-900/10 pt-6">
-      <%= render_ncuikit_button :primary_submit, label: 'Update' %>
+      <%= render_ncuikit_button :primary_submit, label: 'Update', size: 'lg' %>
     </div>
   <% end %>
 <% end %>

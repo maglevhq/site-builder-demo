@@ -80,10 +80,10 @@ gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: fals
 
 source 'https://packages.nocoffee.fr/private' do
   # MaglevCMS PRO: multi-sites, multi-themes
-  gem 'maglevcms-pro', '~> 0.3.1', require: 'maglev/pro'
+  gem 'maglevcms-pro', '~> 0.4.0', require: 'maglev/pro'
 
   # NoCoffee UIKit to build sleek and consistent UI
-  gem 'ncuikit', '~> 0.1.1'
+  gem 'ncuikit', '~> 0.2.0'
 end
 
 gem "redcarpet", "~> 3.6"

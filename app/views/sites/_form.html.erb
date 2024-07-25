@@ -7,9 +7,11 @@
     <%= render_ncuikit_form :text_field, form: form, attribute: :name %>
   </div>
 
-  <div class="sm:col-span-6">
-    <%= render_ncuikit_form :text_field, form: form, attribute: :domain, options: { hint: domain_hint } %>
-  </div>
+  <% if form.object.persisted? %>
+    <div class="sm:col-start-1 sm:col-span-3">
+      <%= render_ncuikit_form :text_field, form: form, attribute: :domain, options: { hint: domain_hint } %>
+    </div>
+  <% end %>
 
   <div class="sm:col-span-6">
     <%= render_ncuikit_form :card_radio_buttons, form: form, attribute: :theme_id, options: { grids: 2 } do |c| %>

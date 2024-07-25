@@ -1,13 +1,13 @@
 <%= render_ncuikit :page_layout, title: 'New site' do |page| %>
   <% page.with_actions do %>
-    <%= render_ncuikit_button :primary_link, label: 'Back to sites', url: sites_path, icon: 'ri-arrow-left-line' %>
+    <%= render_ncuikit_button :secondary_link, label: 'Back to sites', url: sites_path, icon: 'ri-arrow-left-line' %>
   <% end %>  
 
   <%= form_with(model: @site) do |form| %>
     <%= render 'form', form: %>
 
     <div class="mt-12 text-right border-t border-gray-900/10 pt-6">
-      <%= render_ncuikit_button :primary_submit, label: 'Create' %>
+      <%= render_ncuikit_button :primary_submit, size: 'lg', label: 'Create' %>
     </div>
   <% end %>
 <% end %>
