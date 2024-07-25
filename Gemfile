@@ -83,7 +83,7 @@ source 'https://packages.nocoffee.fr/private' do
   gem 'maglevcms-pro', '~> 0.4.0', require: 'maglev/pro'
 
   # NoCoffee UIKit to build sleek and consistent UI
-  gem 'ncuikit', '~> 0.2.0'
+  gem 'ncuikit', '~> 0.2.1'
 end
 
 gem "redcarpet", "~> 3.6"
