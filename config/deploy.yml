@@ -15,6 +15,9 @@ registry:
   password:
     - DOCKER_REGISTRY_TOKEN
 
+volumes:
+  - "/var/local/data/storage:/rails/storage"
+
 # Inject ENV variables into containers (secrets come from .env).
 # Remember to run `kamal env push` after making changes!
 env:
@@ -27,6 +30,7 @@ env:
     RAILS_LOG_TO_STDOUT: true
   secret:
     - RAILS_MASTER_KEY
+    - POSTGRES_USER
     - POSTGRES_PASSWORD
     - BUNDLE_GITHUB__COM
     - BUNDLE_PACKAGES__NOCOFFEE__FR
@@ -41,9 +45,9 @@ accessories:
     port: 5432
     env:
       clear:
-        POSTGRES_USER: 'jack'
         POSTGRES_DB: 'site_builder_demo_production'
       secret:
+        - POSTGRES_USER
         - POSTGRES_PASSWORD
     files:
       - db/init.sql:/docker-entrypoint-initdb.d/setup.sql

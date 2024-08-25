@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   # Root of the main domain -> sign up page
   get '/' => 'users#new', constraints: { host: Rails.application.config.x.main_host }
 
+  # Sitemap of the demo app
+  get '/sitemap.xml', to: 'sitemap#index', constraints: { host: Rails.application.config.x.main_host }
+
   # [Maglev] For more information, go to https://doc.maglev.dev
   # [Maglev] Editor UI + preview endpoint
   mount Maglev::Pro::Engine => '/maglev', as: :maglev
