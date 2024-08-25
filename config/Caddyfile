@@ -1,10 +1,10 @@
 {
         # debug
         # admin off
-        # log {
-        #        output file /var/log/caddy.log {
-        #        }
-        # }
+        log {
+                output file /var/log/caddy.log {
+                }
+        }
 
         email "didier@nocoffee.fr"
 
@@ -16,7 +16,7 @@
 }
 
 https:// {
-        # log
+        log
         tls {
                 on_demand
         }
