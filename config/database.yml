@@ -80,6 +80,6 @@ test:
 production:
   <<: *default
   database: site_builder_demo_production
-  username: jack
   host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
