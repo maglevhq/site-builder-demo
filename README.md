@@ -34,6 +34,19 @@ bundle exec rails db:migrate
 ./bin/dev
 ```
 
+### Kamal
+
+On the server
+
+```
+docker network create --driver bridge private
+```
+
+```
+mkdir -p /var/local/data/storage
+chown 1000:1000 /var/local/data/storage
+```
+
 ## License
 
 The source code of this application without the Maglev PRO gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

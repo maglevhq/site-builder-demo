@@ -6,7 +6,12 @@ image: maglevhq/site-builder-demo
 
 # Deploy to these servers.
 servers:
-  - 104.131.163.175
+  web:
+    hosts:
+      - 97.107.129.159
+      # - 104.131.163.175 # DigitalOcean
+    options:
+      network: "private"  
 
 # Credentials for your image host.
 registry:
@@ -23,9 +28,9 @@ volumes:
 env:
   clear:
     APP_MAIN_HOST: demo-pro.maglev.dev
-    DNS_DOMAIN_ADDRESS: 104.131.163.175
+    DNS_DOMAIN_ADDRESS: 97.107.129.159
     DNS_DOMAIN_ALIAS: demo-pro.maglev.dev
-    DATABASE_HOST: 10.132.0.2
+    DATABASE_HOST: site-builder-demo-db
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
   secret:
@@ -41,8 +46,8 @@ env:
 accessories:
   db:
     image: postgres:15
-    host: 104.131.163.175
-    port: 5432
+    host: 97.107.129.159
+    port: 127.0.0.1:5432:5432
     env:
       clear:
         POSTGRES_DB: 'site_builder_demo_production'
@@ -53,32 +58,29 @@ accessories:
       - db/init.sql:/docker-entrypoint-initdb.d/setup.sql
     directories:
       - data:/var/lib/postgresql/data
+    options:
+      network: "private"
 
   caddy:
     image: caddy:2.7.6
-    host: 104.131.163.175
+    host: 97.107.129.159
     options:
       publish:
         - "80:80"
         - "443:443"
         - "443:443/udp"
+      network: "private" 
     files:
       - config/Caddyfile:/etc/caddy/Caddyfile
     directories:
       - caddy_data:/var/lib/caddy/data
       - caddy_config:/var/lib/caddy/config
-
-    # redis:
-    #   image: redis:7.0
-    #   host: 192.168.0.2
-    #   port: 6379
-    #   directories:
-    #     - data:/data
-
-
+    
 # Configure custom arguments for Traefik
 traefik:
   host_port: 81
+  options:
+    network: "private"
   # args:
   #   accesslog: true
   #   accesslog.format: json
