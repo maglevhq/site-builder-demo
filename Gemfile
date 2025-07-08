@@ -63,6 +63,8 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  gem "kamal", "1.9.3"
 end
 
 group :test do
