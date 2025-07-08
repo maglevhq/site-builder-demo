@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.2.3"
+ruby "3.4.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1"
@@ -24,7 +24,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "~> 3.3.2"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -71,8 +71,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# gem 'maglevcms', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-core', require: false
-# gem 'maglevcms-pro', path: '/Users/didier/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
+# gem 'maglevcms', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-core', require: false
+# gem 'maglevcms-pro', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 # gem "ncuikit", path: "/Users/didier/Documents/NoCoffee/OSS/ncuikit"
 

@@ -157,6 +157,31 @@ pages:
         name: "Youtube"
         link: "#"
         icon: "ri-youtube-fill"
+
+
+presets:
+  blabla:
+    pages:
+    - title: "Home page"
+      path:  "/index"
+      sections:
+      - type: "navbar_01"
+        settings:
+          logo: "/themes/logoipsum.svg"
+          main_link:
+            text: "Log in →"
+            url: "#"
+        blocks:
+        - type: nav_item
+          settings:
+            link: 
+              text: "Product"
+              url: "#"
+        - type: nav_item
+          settings:
+            link: 
+              text: "Features"
+              url: "#"
     
 # List of CSS class names used by your library of icons (font awesome, remixicons, ...etc)
 icons: [

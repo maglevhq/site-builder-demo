@@ -6,7 +6,7 @@ Maglev.configure do |config|
 
   # Logo of the Editor (top left corner).
   # Put your custom logo in the app/assets/images folder of your Rails application.
-  config.logo = 'logo.png'
+  config.logo = 'logo.svg'
 
   # Favicon (window tab)
   # Put your custom favicon in the app/assets/images folder of your Rails application.
