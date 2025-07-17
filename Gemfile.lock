@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 277845e72d8272a3b4082e2c73b1813b34bcbc16
-  branch: master
+  revision: 7b9878a3a88bba1f0c03690725916beb693628a7
+  branch: 167-missing-rake-task-to-copy-maglev-precompiled-assets-in-the-main-app
   specs:
     maglevcms (2.0.0)
       jbuilder (>= 2, < 3)

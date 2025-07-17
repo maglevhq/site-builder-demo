@@ -58,7 +58,7 @@ RUN --mount=type=secret,id=MAGLEV_ADMIN_USERNAME \
     --mount=type=secret,id=MAGLEV_ADMIN_PASSWORD \
     MAGLEV_ADMIN_USERNAME=$(cat /run/secrets/MAGLEV_ADMIN_USERNAME) \
     MAGLEV_ADMIN_PASSWORD=$(cat /run/secrets/MAGLEV_ADMIN_PASSWORD) \
-    SECRET_KEY_BASE_DUMMY=1 ./bin/rails maglev_pro:copy_tailwindcss_config assets:precompile
+    SECRET_KEY_BASE_DUMMY=1 ./bin/rails maglev_pro:copy_tailwindcss_config assets:precompile maglev:vite:copy_public_dir
 
 # Final stage for app image
 FROM base

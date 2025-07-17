@@ -79,7 +79,8 @@ end
 # gem "ncuikit", path: "/Users/didier/Documents/NoCoffee/OSS/ncuikit"
 
 # 🚨 PRODUCTION
-gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
+# gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
+gem 'maglevcms', github: 'maglevhq/maglev-core', branch: '167-missing-rake-task-to-copy-maglev-precompiled-assets-in-the-main-app', require: false
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 
 source 'https://packages.nocoffee.fr/private' do
