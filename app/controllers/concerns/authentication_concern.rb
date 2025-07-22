@@ -3,6 +3,11 @@ module AuthenticationConcern
 
   included do
     helper_method :current_user
+
+    rescue_from Maglev::Errors::NotAuthorized do |exception|
+      redirect_to main_app.new_session_path
+    end
+
   end
 
   private
