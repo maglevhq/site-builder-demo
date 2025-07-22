@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: e9e6cd07864f4acf75dcdf928186ffd5f981ba4c
+  revision: 568837917dd8e3d1c6430d4215d74b9587ffd449
   branch: master
   specs:
     maglevcms (2.0.0)
@@ -13,10 +13,10 @@ GIT
 
 GIT
   remote: https://github.com/maglevhq/maglev-pro.git
-  revision: 2f70e8bd7b0d1d062fc6fe2710c35bd8c6baff74
-  ref: 2f70e8b
+  revision: 558534e12eadbe30eb42207eaf11d9d5070dbc81
+  branch: master
   specs:
-    maglevcms-pro (0.5.0)
+    maglevcms-pro (1.0.0.beta.1)
       concurrent-ruby
       faraday
       haikunator (= 1.1.0)

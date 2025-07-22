@@ -10,7 +10,7 @@ Maglev.configure do |config|
 
   # Favicon (window tab)
   # Put your custom favicon in the app/assets/images folder of your Rails application.
-  # config.favicon = 'favicon.ico'
+  config.favicon = 'favicon.svg'
 
   # Primary color of the Editor
   config.primary_color = '#040712'

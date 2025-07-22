@@ -73,16 +73,16 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# gem 'maglevcms', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-core', require: false
+# gem 'maglevcms', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-mit', require: false
 # gem 'maglevcms-pro', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 # gem "ncuikit", path: "/Users/didier/Documents/NoCoffee/OSS/ncuikit"
 
 # 🚨 PRODUCTION
-# gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
 gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
-# gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
-gem 'maglevcms-pro', github: 'maglevhq/maglev-pro', ref: '2f70e8b', require: 'maglev/pro'
+# gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
+gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
+# gem 'maglevcms-pro', github: 'maglevhq/maglev-pro', ref: '2f70e8b', require: 'maglev/pro'
 
 
 source 'https://packages.nocoffee.fr/private' do
