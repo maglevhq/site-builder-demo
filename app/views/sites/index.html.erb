@@ -9,7 +9,7 @@
       <%= render_ncuikit_button :primary_link, label: 'Create site', url: new_site_path, icon: 'ri-add-line' %>
       <% end %>
   <% else %>
-    <%= render_ncuikit :grid_list do %>
+    <%= render_ncuikit_list :grid_list do %>
       <%= render @sites %>
     <% end %>
   <% end %>

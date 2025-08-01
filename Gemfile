@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.4.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 8.0.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -76,7 +76,7 @@ end
 # gem 'maglevcms', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-mit', require: false
 # gem 'maglevcms-pro', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
-# gem "ncuikit", path: "/Users/didier/Documents/NoCoffee/OSS/ncuikit"
+# gem "ncuikit", path: "/Users/did/Documents/NoCoffee/OSS/ncuikit"
 
 # 🚨 PRODUCTION
 gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
@@ -90,7 +90,7 @@ source 'https://packages.nocoffee.fr/private' do
   # gem 'maglevcms-pro', '~> 0.5.0', require: 'maglev/pro'
 
   # NoCoffee UIKit to build sleek and consistent UI
-  gem 'ncuikit', '~> 0.2.1'
+  gem 'ncuikit', '~> 0.3.2'
 end
 
 gem "redcarpet", "~> 3.6"
