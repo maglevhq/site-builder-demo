@@ -83,13 +83,13 @@ end
 # 🚨 PRODUCTION
 gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
 # gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
-gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
+# gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 # gem 'maglevcms-pro', github: 'maglevhq/maglev-pro', ref: '2f70e8b', require: 'maglev/pro'
 
 
 source 'https://packages.nocoffee.fr/private' do
   # MaglevCMS PRO: multi-sites, multi-themes
-  # gem 'maglevcms-pro', '~> 0.5.0', require: 'maglev/pro'
+  gem 'maglevcms-pro', '~> 1.0.0', require: 'maglev/pro'
 
   # NoCoffee UIKit to build sleek and consistent UI
   gem 'ncuikit', '~> 0.3.2'
