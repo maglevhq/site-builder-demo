@@ -16,7 +16,7 @@ module MaglevSiteConcern
   def generate_maglev_site
     return false if maglev_site # create it once
 
-    Maglev::Pro::GenerateSite.call(
+    Maglev::Saas::GenerateSite.call(
       siteable: self,
       theme_id:,
       name: self.name,

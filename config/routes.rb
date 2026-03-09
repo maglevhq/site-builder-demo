@@ -22,11 +22,13 @@ Rails.application.routes.draw do
 
   # [Maglev] For more information, go to https://doc.maglev.dev
   # [Maglev] Editor UI + preview endpoint
-  mount Maglev::Pro::Engine => '/maglev', as: :maglev
+  mount Maglev::Saas::Engine => '/maglev', as: :maglev
 
   # [Maglev] Sitemap.xml (depends on the host of the request)
   get '/sitemap.xml', to: 'maglev/sitemap#index', constraints: Maglev::PreviewConstraint.new(preview_host: true)
 
   # [Maglev] catch all the routes (depends on the host of the request)
-  get '(*path)', to: 'maglev/page_preview#index', defaults: { path: 'index' }, constraints: Maglev::PreviewConstraint.new
+  # get '(*path)', to: 'maglev/page_preview#index', defaults: { path: 'index' }, constraints: Maglev::PreviewConstraint.new
+
+  draw 'maglev/saas/public_routes'
 end

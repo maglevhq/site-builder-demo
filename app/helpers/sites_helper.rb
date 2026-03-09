@@ -9,7 +9,11 @@ module SitesHelper
   end
 
   def edit_site_content_url(site)
-    maglev.base_editor_url(site_handle: site.maglev_site.handle, host: Rails.application.config.x.main_host, locale: 'en')
+    maglev.editor_root_url(
+      site_handle: site.maglev_site.handle,
+      host: Rails.application.config.x.main_host,
+      locale: 'en'
+    )
   end
 
 end

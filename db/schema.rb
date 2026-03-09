@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2023_12_19_232209) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_07_180943) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -80,7 +80,21 @@ ActiveRecord::Schema[7.2].define(version: 2023_12_19_232209) do
     t.jsonb "og_description_translations", default: {}
     t.jsonb "og_image_url_translations", default: {}
     t.bigint "maglev_site_id"
+    t.datetime "published_at", precision: nil
+    t.jsonb "published_payload", default: {}
     t.index ["maglev_site_id"], name: "index_maglev_pages_on_maglev_site_id"
+  end
+
+  create_table "maglev_sections_content_stores", force: :cascade do |t|
+    t.string "container_id"
+    t.string "container_type"
+    t.jsonb "sections_translations", default: {}
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "maglev_site_id"
+    t.index ["maglev_site_id", "container_id", "container_type", "published"], name: "maglev_pro_sections_content_stores_container_and_published", unique: true
+    t.index ["maglev_site_id"], name: "index_maglev_sections_content_stores_on_maglev_site_id"
   end
 
   create_table "maglev_sites", force: :cascade do |t|
@@ -96,6 +110,7 @@ ActiveRecord::Schema[7.2].define(version: 2023_12_19_232209) do
     t.string "handle"
     t.string "theme_id"
     t.string "domain"
+    t.datetime "published_at", precision: nil
     t.index ["siteable_type", "siteable_id"], name: "index_maglev_sites_on_siteable"
   end
 

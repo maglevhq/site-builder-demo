@@ -3,16 +3,17 @@ source "https://rubygems.org"
 ruby "3.4.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.1.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# gem "sprockets-rails"
+gem "propshaft"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.6"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
+gem "puma", ">= 7.2.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -75,24 +76,28 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# 🚨 DEV
+# gem 'maglevcms', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-mit' 
+# gem 'maglevcms-saas-plugin', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-saas-plugin'
 # gem 'maglevcms', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-mit', require: false
 # gem 'maglevcms-pro', path: '/Users/did/Documents/NoCoffee/Maglev/maglev-pro', require: 'maglev/pro'
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 # gem "ncuikit", path: "/Users/did/Documents/NoCoffee/OSS/ncuikit"
 
 # 🚨 PRODUCTION
-gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
-# gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master', require: false
+gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
+gem 'maglevcms-saas-plugin', github: 'maglevhq/maglev-saas-plugin', branch: 'main'
+gem 'ncuikit', github: 'nocoffeehq/uikit', branch: 'main'
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 # gem 'maglevcms-pro', github: 'maglevhq/maglev-pro', ref: '2f70e8b', require: 'maglev/pro'
 
 
 source 'https://packages.nocoffee.fr/private' do
   # MaglevCMS PRO: multi-sites, multi-themes
-  gem 'maglevcms-pro', '~> 1.0.0', require: 'maglev/pro'
+  # gem 'maglevcms-pro', '~> 1.0.0', require: 'maglev/pro'
 
   # NoCoffee UIKit to build sleek and consistent UI
-  gem 'ncuikit', '~> 0.3.2'
+  # gem 'ncuikit', '~> 0.3.2'
 end
 
 gem "redcarpet", "~> 3.6"
