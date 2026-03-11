@@ -7,24 +7,50 @@ image: maglevhq/site-builder-demo
 # Deploy to these servers.
 servers:
   web:
-    hosts:
-      - 97.107.129.159
-      # - 104.131.163.175 # DigitalOcean
-    options:
-      network: "private"  
+    - 97.107.129.159
+
+# Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
+# Remove this section when using multiple web servers and ensure you terminate SSL at your load balancer.
+#
+# Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
+proxy:
+  ssl: true
+  host: "*"
+  tls_on_demand_url: "/check_domain"
+  ssl_redirect: true
+  app_port: 3000
+  forward_headers: true
+  healthcheck:
+    interval: 3
+    timeout: 60
+  run:
+    repository: nocoffeehq/kamal-proxy
+    version: v0.9.2.4
 
 # Credentials for your image host.
 registry:
-  server: ghcr.io
-  username: did
-  password:
-    - DOCKER_REGISTRY_TOKEN
+  server: localhost:5555
+  # Specify the registry server, if you're not using Docker Hub
+  # server: registry.digitalocean.com / ghcr.io / ...
+  # username: my-user
 
-volumes:
-  - "/var/local/data/storage:/rails/storage"
+  # Always use an access token rather than real password (pulled from .kamal/secrets).
+  # password:
+  #   - KAMAL_REGISTRY_PASSWORD
 
-# Inject ENV variables into containers (secrets come from .env).
-# Remember to run `kamal env push` after making changes!
+# Configure builder setup.
+builder:
+  arch: amd64
+  secrets:
+    - BUNDLE_GITHUB__COM
+    - BUNDLE_PACKAGES__NOCOFFEE__FR
+    - HONEYBADGER_API_KEY
+  # Pass in additional build args needed for your Dockerfile.
+  # args:
+  #   RUBY_VERSION: <%= ENV["RBENV_VERSION"] || ENV["rvm_ruby_string"] || "#{RUBY_ENGINE}-#{RUBY_ENGINE_VERSION}" %>
+
+# Inject ENV variables into containers (secrets come from .kamal/secrets).
+#
 env:
   clear:
     APP_MAIN_HOST: demo-pro.maglev.dev
@@ -39,10 +65,41 @@ env:
     - POSTGRES_PASSWORD
     - BUNDLE_GITHUB__COM
     - BUNDLE_PACKAGES__NOCOFFEE__FR
-    - MAGLEV_ADMIN_USERNAME
-    - MAGLEV_ADMIN_PASSWORD
     - HONEYBADGER_API_KEY
 
+# Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
+# "bin/kamal app logs -r job" will tail logs from the first server in the job section.
+#
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
+# Use a different ssh user than root
+#
+# ssh:
+#   user: app
+
+# Use a persistent storage volume.
+#
+# volumes:
+#   - "app_storage:/app/storage"
+
+# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
+# hitting 404 on in-flight requests. Combines all files from new and old
+# version inside the asset_path.
+#
+# asset_path: /app/public/assets
+
+# Configure rolling deploys by setting a wait time between batches of restarts.
+#
+# boot:
+#   limit: 10 # Can also specify as a percentage of total hosts, such as "25%"
+#   wait: 2
+
+# Use accessory services (secrets come from .kamal/secrets).
+#
 accessories:
   db:
     image: postgres:15
@@ -50,7 +107,7 @@ accessories:
     port: 127.0.0.1:5432:5432
     env:
       clear:
-        POSTGRES_DB: 'site_builder_demo_production'
+        POSTGRES_DB: "site_builder_demo_production"
       secret:
         - POSTGRES_USER
         - POSTGRES_PASSWORD
@@ -60,64 +117,3 @@ accessories:
       - data:/var/lib/postgresql/data
     options:
       network: "private"
-
-  caddy:
-    image: caddy:2.7.6
-    host: 97.107.129.159
-    options:
-      publish:
-        - "80:80"
-        - "443:443"
-        - "443:443/udp"
-      network: "private" 
-    files:
-      - config/Caddyfile:/etc/caddy/Caddyfile
-    directories:
-      - caddy_data:/var/lib/caddy/data
-      - caddy_config:/var/lib/caddy/config
-    
-# Configure custom arguments for Traefik
-traefik:
-  host_port: 81
-  options:
-    network: "private"
-  # args:
-  #   accesslog: true
-  #   accesslog.format: json
-
-# Configure a custom healthcheck (default is /up on port 3000)
-healthcheck:
-  # path: /healthz
-  # port: 4000
-  interval: 5s
-
-# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
-# hitting 404 on in-flight requests. Combines all files from new and old
-# version inside the asset_path.
-# asset_path: /rails/public/assets
-
-# Configure rolling deploys by setting a wait time between batches of restarts.
-# boot:
-#   limit: 10 # Can also specify as a percentage of total hosts, such as "25%"
-#   wait: 2
-
-# Configure the role used to determine the primary_host. This host takes
-# deploy locks, runs health checks during the deploy, and follow logs, etc.
-#
-# Caution: there's no support for role renaming yet, so be careful to cleanup
-#          the previous role on the deployed hosts.
-# primary_role: web
-
-# Controls if we abort when see a role with no hosts. Disabling this may be
-# useful for more complex deploy configurations.
-#
-# allow_empty_roles: false
-
-builder:
-  secrets:
-    - BUNDLE_GITHUB__COM
-    - BUNDLE_PACKAGES__NOCOFFEE__FR
-    - MAGLEV_ADMIN_USERNAME
-    - MAGLEV_ADMIN_PASSWORD
-    - HONEYBADGER_API_KEY
-

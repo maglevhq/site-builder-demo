@@ -67,7 +67,7 @@ group :development do
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 
-  gem "kamal", "1.9.3"
+  gem "nocoffee-kamal"
 end
 
 group :test do
