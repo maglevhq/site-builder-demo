@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 602b9351f981aec66e811133cf2ffd118076a13a
-  branch: feat-prefetch-on-hovered-section
+  revision: 053af96c4e796273de68f5542defd20a6a27ca4e
+  branch: master
   specs:
     maglevcms (3.0.0.beta3)
       class_variants (~> 1.1)
