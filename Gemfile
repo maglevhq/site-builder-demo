@@ -104,3 +104,5 @@ end
 gem "redcarpet", "~> 3.6"
 
 gem "honeybadger", "~> 5.8"
+
+gem "activerecord-session_store", "~> 2.2"
