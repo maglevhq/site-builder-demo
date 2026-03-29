@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 053af96c4e796273de68f5542defd20a6a27ca4e
-  branch: master
+  revision: 891e0d2eb8417326ebaf684ff55f58f574f00e11
+  ref: 891e0d2eb84
+  branch: feat-revamp-add-section
   specs:
-    maglevcms (3.0.0.beta3)
+    maglevcms (3.0.0.beta4)
       class_variants (~> 1.1)
       importmap-rails (>= 2, < 3)
       maglev-injectable (~> 2.1.1)

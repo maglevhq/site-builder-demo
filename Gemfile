@@ -85,7 +85,8 @@ end
 # gem "ncuikit", path: "/Users/did/Documents/NoCoffee/OSS/ncuikit"
 
 # 🚨 PRODUCTION
-gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
+# gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
+gem 'maglevcms', github: 'maglevhq/maglev-core', ref: '891e0d2eb84', branch: 'feat-revamp-add-section'
 gem 'maglevcms-saas-plugin', github: 'maglevhq/maglev-saas-plugin', branch: 'main'
 gem 'ncuikit', github: 'nocoffeehq/uikit', branch: 'main'
 
