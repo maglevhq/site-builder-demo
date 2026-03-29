@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 891e0d2eb8417326ebaf684ff55f58f574f00e11
-  ref: 891e0d2eb84
+  revision: eeced7d92af677c9a9a9614c8124330d8ff70b3f
+  ref: eeced7d92af677
   branch: feat-revamp-add-section
   specs:
     maglevcms (3.0.0.beta4)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/maglevhq/maglev-saas-plugin.git
-  revision: 90447976dd82d1f317d080b0016f5dc86a9a0627
+  revision: 481ab53a258467c7e8e1245552c3211f68bbb950
   branch: main
   specs:
     maglevcms-saas-plugin (0.1.0)
