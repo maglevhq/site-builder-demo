@@ -1,8 +1,7 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: e9664e81a1ea1b563b82a6bbf66f8c2359c449c1
-  ref: e9664e81a1ea1
-  branch: feat-revamp-add-section
+  revision: 7d88ebc884521b99079d22444b91e556f401abfc
+  branch: master
   specs:
     maglevcms (3.0.0.beta4)
       class_variants (~> 1.1)

@@ -86,7 +86,7 @@ end
 
 # 🚨 PRODUCTION
 # gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
-gem 'maglevcms', github: 'maglevhq/maglev-core', ref: 'e9664e81a1ea1', branch: 'feat-revamp-add-section'
+gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
 gem 'maglevcms-saas-plugin', github: 'maglevhq/maglev-saas-plugin', branch: 'main'
 gem 'ncuikit', github: 'nocoffeehq/uikit', branch: 'main'
 
