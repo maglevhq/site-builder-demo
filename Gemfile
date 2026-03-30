@@ -85,18 +85,16 @@ end
 # gem "ncuikit", path: "/Users/did/Documents/NoCoffee/OSS/ncuikit"
 
 # 🚨 PRODUCTION
-# gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
 gem 'maglevcms', github: 'maglevhq/maglev-core', branch: 'master'
-gem 'maglevcms-saas-plugin', github: 'maglevhq/maglev-saas-plugin', branch: 'main'
+# gem 'maglevcms-saas-plugin', github: 'maglevhq/maglev-saas-plugin', branch: 'main'
 gem 'ncuikit', github: 'nocoffeehq/uikit', branch: 'main'
 
 # gem "maglevcms-pro", git: "https://github.com/maglevhq/maglev-pro.git", branch: 'master', require: 'maglev/pro'
 # gem 'maglevcms-pro', github: 'maglevhq/maglev-pro', ref: '2f70e8b', require: 'maglev/pro'
 
-
 source 'https://packages.nocoffee.fr/private' do
-  # MaglevCMS PRO: multi-sites, multi-themes
-  # gem 'maglevcms-pro', '~> 1.0.0', require: 'maglev/pro'
+  # MaglevCMS SaaS plugin: multi-site, multi-theme
+  gem 'maglevcms-saas-plugin', '~> 0.1.0'
 
   # NoCoffee UIKit to build sleek and consistent UI
   # gem 'ncuikit', '~> 0.3.2'

@@ -1,31 +1,31 @@
 # Site builder demo
 
-This very minimal and simple Ruby on Rails application runs the **PRO version** of [MaglevCMS](https://www.maglev.dev), the most advanced page builder gem in Rails.
+This minimal Ruby on Rails application runs [MaglevCMS](https://www.maglev.dev), an advanced page builder for Rails, with the **Maglev SaaS plugin** for multi-site hosting.
 
-[online demo](https://demo-pro.maglev.dev)
+[Online demo](https://demo-pro.maglev.dev)
 
 ## Features
 
-- 🌐 once signed up/in, users can create as many sites as they want.
-- 🎨 a new site is generated from one of the 2 themes included in the app.
-- 🤩 the content of each site is edited thanks to the awesome UI/UX of Maglev.
-- 🔐 a TLS certificate is generated for each site with a valid domain (require a DNS operation).
-- 📦 a Kamal deployment config file is provided, making the deployment of this application really easy.
+- 🌐 Once signed in, users can create as many sites as they want.
+- 🎨 A new site is generated from one of the two themes included in the app.
+- 🤩 Each site's content is edited with Maglev’s editor UI.
+- 🔐 A TLS certificate is generated for each site with a valid domain (this requires a DNS step).
+- 📦 A Kamal deployment config is included so you can deploy the app with little setup.
 
 ## Installation
 
-The installation requires a license key of the Maglev PRO version. Visit [our site](https://www.maglev.dev/pricing) to get your key.
+You need a license key for the Maglev SaaS plugin. Visit [our site](https://www.maglev.dev/saas-edition#pricing) to get your key.
 
 ### System requirements
 
-- Ruby 3.2+
-- Rails 7.1+
-- Postgresql
-- Docker (if you want to deploy it with Kamal)
+- Ruby 3.4+
+- Rails 8.1+
+- PostgreSQL / SQLite / MySQL / MariaDB
+- Docker (if you want to deploy with Kamal)
 
 ### Instructions
 
-```code
+```bash
 git clone https://github.com/maglevhq/site-builder-demo
 cd site-builder-demo
 bundle install
@@ -36,19 +36,15 @@ bundle exec rails db:migrate
 
 ### Kamal
 
-On the server
+We use a custom build of Kamal / [Kamal-proxy](https://github.com/basecamp/kamal-proxy/pull/63) so we can provision dynamic TLS certificates. We hope this pull request will be merged soon.
+In the meantime, contact us for other options.
 
-```
-docker network create --driver bridge private
-```
+As an example, this is the only command we run to deploy a new version of the demo platform in production:
 
-```
-mkdir -p /var/local/data/storage
-chown 1000:1000 /var/local/data/storage
+```bash
+bundle exec kamal deploy
 ```
 
 ## License
 
-The source code of this application without the Maglev PRO gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-
+The source code of this application, excluding the proprietary Maglev SaaS plugin gem, is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

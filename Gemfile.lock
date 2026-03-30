@@ -13,15 +13,6 @@ GIT
       view_component (~> 4.1.1)
 
 GIT
-  remote: https://github.com/maglevhq/maglev-saas-plugin.git
-  revision: 75aeb901fbceea2e365df7018eb8f83142155705
-  branch: main
-  specs:
-    maglevcms-saas-plugin (0.1.0)
-      haikunator (= 1.1.0)
-      liquid (~> 5.4)
-
-GIT
   remote: https://github.com/nocoffeehq/uikit.git
   revision: 1c20876ceaac1b41664d9112b516f0e196bd41df
   branch: main
@@ -35,6 +26,9 @@ GIT
 GEM
   remote: https://packages.nocoffee.fr/private/
   specs:
+    maglevcms-saas-plugin (0.1.0)
+      haikunator (= 1.1.0)
+      liquid (~> 5.4)
 
 GEM
   remote: https://rubygems.org/
@@ -403,7 +397,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   maglevcms!
-  maglevcms-saas-plugin!
+  maglevcms-saas-plugin (~> 0.1.0)!
   ncuikit!
   nocoffee-kamal
   pagy (~> 9.0, >= 9.0.9)
