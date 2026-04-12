@@ -7,7 +7,7 @@ image: maglevhq/site-builder-demo
 # Deploy to these servers.
 servers:
   web:
-    - 97.107.129.159
+    - 46.225.155.76
 
 # Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
 # Remove this section when using multiple web servers and ensure you terminate SSL at your load balancer.
@@ -54,7 +54,7 @@ builder:
 env:
   clear:
     APP_MAIN_HOST: demo-pro.maglev.dev
-    DNS_DOMAIN_ADDRESS: 97.107.129.159
+    DNS_DOMAIN_ADDRESS: 46.225.155.76
     DNS_DOMAIN_ALIAS: demo-pro.maglev.dev
     DATABASE_HOST: site-builder-demo-db
     RAILS_SERVE_STATIC_FILES: true
@@ -103,7 +103,8 @@ volumes:
 accessories:
   db:
     image: postgres:15
-    host: 97.107.129.159
+    # host: 97.107.129.159
+    host: 46.225.155.76
     port: 127.0.0.1:5432:5432
     env:
       clear:
