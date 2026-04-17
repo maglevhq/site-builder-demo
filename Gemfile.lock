@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 63ee2ffabcc4c07734b9a1b76e1157070d1d77a5
+  revision: 2a347aedf8e088df73509b5ff6ea65e5ea839b15
   branch: master
   specs:
     maglevcms (3.0.0.beta4)
@@ -118,7 +118,7 @@ GEM
     base64 (0.3.0)
     bcrypt (3.1.22)
     bcrypt_pbkdf (1.1.2)
-    bigdecimal (4.1.0)
+    bigdecimal (4.1.1)
     bindex (0.8.1)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
@@ -144,7 +144,7 @@ GEM
     dotenv (3.2.0)
     drb (2.2.3)
     ed25519 (1.4.0)
-    erb (6.0.2)
+    erb (6.0.3)
     error_highlight (0.7.1)
     erubi (1.13.1)
     ffi (1.17.4-aarch64-linux-gnu)
@@ -198,7 +198,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    minitest (6.0.2)
+    minitest (6.0.4)
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.0)
@@ -265,8 +265,8 @@ GEM
     puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.5)
-    rack-session (2.1.1)
+    rack (3.2.6)
+    rack-session (2.1.2)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
     rack-test (2.2.0)
@@ -303,7 +303,7 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
-    rake (13.3.1)
+    rake (13.4.2)
     rdoc (7.2.0)
       erb
       psych (>= 4.0.0)
