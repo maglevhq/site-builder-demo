@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/maglevhq/maglev-core.git
-  revision: 2a347aedf8e088df73509b5ff6ea65e5ea839b15
+  revision: 3d6bbfa7d23a7c3511a2a0af14ec9b727bc94794
   branch: master
   specs:
     maglevcms (3.0.0.beta4)
