@@ -1,18 +1,4 @@
 GIT
-  remote: https://github.com/maglevhq/maglev-core.git
-  revision: 3d6bbfa7d23a7c3511a2a0af14ec9b727bc94794
-  branch: master
-  specs:
-    maglevcms (3.0.0.beta4)
-      class_variants (~> 1.1)
-      importmap-rails (>= 2, < 3)
-      maglev-injectable (~> 2.1.1)
-      pagy (>= 6, < 10)
-      rails (>= 7.2, < 9)
-      turbo-rails (>= 2, < 3)
-      view_component (~> 4.1.1)
-
-GIT
   remote: https://github.com/nocoffeehq/uikit.git
   revision: 1c20876ceaac1b41664d9112b516f0e196bd41df
   branch: main
@@ -187,6 +173,14 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     maglev-injectable (2.1.1)
+    maglevcms (3.0.0)
+      class_variants (~> 1.1)
+      importmap-rails (>= 2, < 3)
+      maglev-injectable (~> 2.1.1)
+      pagy (>= 6, < 10)
+      rails (>= 7.2, < 9)
+      turbo-rails (>= 2, < 3)
+      view_component (~> 4.1.1)
     mail (2.9.0)
       logger
       mini_mime (>= 0.1.1)
@@ -396,7 +390,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
-  maglevcms!
+  maglevcms (~> 3.0.0)
   maglevcms-saas-plugin (~> 0.1.0)!
   ncuikit!
   nocoffee-kamal
