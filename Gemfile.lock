@@ -173,7 +173,7 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     maglev-injectable (2.1.1)
-    maglevcms (3.0.0)
+    maglevcms (3.0.1)
       class_variants (~> 1.1)
       importmap-rails (>= 2, < 3)
       maglev-injectable (~> 2.1.1)
@@ -390,7 +390,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
-  maglevcms (~> 3.0.0)
+  maglevcms (~> 3.0.1)
   maglevcms-saas-plugin (~> 0.1.0)!
   ncuikit!
   nocoffee-kamal
